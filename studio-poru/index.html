@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studio Pour</title>
+  <!-- Tailwind CDN (간단 배포용) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-cream-50">
+  <!-- 여기에 슬라이더 코드 삽입 -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Before 이미지 -->
+    <img src="assets/before.jpg" class="absolute inset-0 w-full h-auto object-cover" />
+    <!-- After 이미지 (마스크) -->
+    <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
+      <img src="assets/after.jpg" class="w-full h-auto object-cover" />
+    </div>
+    <!-- 드래그 핸들 -->
+    <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                                 w-10 h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
+      <span class="text-xl">‹›</span>
+    </div>
+    <!-- 레이블 & 버튼 등… -->
+  </div>
+
+  <script src="js/slider.js"></script>
+</body>
+</html>
