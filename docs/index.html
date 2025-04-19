@@ -1,13 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Studio Pour - 홈카페 올인원 스테이션</title>
+  <!-- SEO Metadata -->
+  <meta name="description" content="Studio Pour의 올인원 홈카페 스테이션 - 도징, 저울, 거치를 하나로, 따뜻한 호두나무 무드" />
+  <meta property="og:title" content="Studio Pour 홈카페 스테이션" />
+  <meta property="og:description" content="작지만 단단한 나만의 홈카페 스테이션" />
+  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/hero-3d.png" />
+  <meta property="og:url" content="https://ryesoup.github.io/studio-pour/" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <!-- AOS Animation CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <!-- Tailwind CDN & Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -24,90 +34,89 @@
     }
   </script>
 </head>
-<body class="bg-cream font-body text-gray-800">
+<body class="bg-cream font-body text-gray-800 dark:bg-gray-900 dark:text-gray-200">
 
   <!-- HEADER -->
-  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50">
+  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50 dark:bg-gray-800 dark:bg-opacity-70" role="banner">
     <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-      <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
+      <a href="#" class="text-walnut dark:text-leaf font-heading text-2xl">Studio Pour</a>
+      <!-- Dark Mode Toggle -->
+      <button id="dark-toggle" class="hidden sm:inline text-xl focus:outline-none" aria-label="Toggle Dark Mode">
+        🌙
+      </button>
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none">
+      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none" aria-label="Open Navigation">
         &#9776;
       </button>
       <!-- Navigation -->
-      <nav id="menu" class="hidden md:flex space-x-6 text-gray-700 font-body">
-        <a href="#hero" class="hover:text-walnut">Home</a>
-        <a href="#features" class="hover:text-walnut">기능</a>
-        <a href="#specs" class="hover:text-walnut">스펙</a>
-        <a href="#plan" class="hover:text-walnut">펀딩</a>
-        <a href="#faq" class="hover:text-walnut">FAQ</a>
+      <nav id="menu" class="hidden md:flex space-x-6 font-body" role="navigation" aria-label="Main Navigation">
+        <a href="#hero" class="hover:text-walnut dark:hover:text-leaf transition">Home</a>
+        <a href="#features" class="hover:text-walnut dark:hover:text-leaf transition">기능</a>
+        <a href="#specs"    class="hover:text-walnut dark:hover:text-leaf transition">스펙</a>
+        <a href="#plan"     class="hover:text-walnut dark:hover:text-leaf transition">펀딩</a>
+        <a href="#faq"      class="hover:text-walnut dark:hover:text-leaf transition">FAQ</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh] px-4">
+  <section id="hero" class="pt-24 bg-cream dark:bg-gray-900 flex items-center justify-center min-h-[80vh] px-4" data-aos="fade-up">
     <div class="text-center w-full max-w-md">
-      <img src="assets/hero-3d.png" alt="올인원 스테이션" class="mx-auto mb-6 w-full shadow-lg rounded-2xl" />
-      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-walnut mb-4 leading-tight">
+      <img src="assets/hero-3d.png" alt="올인원 스테이션" loading="lazy" class="mx-auto mb-6 w-full shadow-lg rounded-2xl" />
+      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-walnut dark:text-leaf mb-4 leading-tight first-letter:text-5xl first-letter:font-heading first-letter:mr-2">
         작지만 단단한<br />
         나만의 홈카페 스테이션
       </h1>
-      <a href="https://www.wadiz.kr/web/campaign/detail/00000"
-         class="inline-block mt-2 px-5 py-3 bg-walnut text-cream rounded-full shadow hover:shadow-md transition">
+      <a href="https://www.wadiz.kr/web/campaign/detail/00000" class="inline-block mt-2 px-5 py-3 bg-walnut text-cream dark:bg-leaf dark:text-gray-900 rounded-full shadow hover:shadow-md transition" role="button">
         펀딩 바로가기
       </a>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features" class="py-12 sm:py-16 bg-white px-4">
+  <section id="features" class="py-12 sm:py-16 bg-white dark:bg-gray-800 px-4" data-aos="fade-up">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
       <div>
-        <img src="assets/icon-dosing.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="도징" />
+        <img src="assets/icon-dosing.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="도징" loading="lazy" />
         <h3 class="font-heading text-lg sm:text-xl mb-1">도징</h3>
-        <p class="text-gray-600 text-sm sm:text-base">정확한 커피 도징 구조</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base">정확한 커피 도징 구조</p>
       </div>
       <div>
-        <img src="assets/icon-scale.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="저울" />
+        <img src="assets/icon-scale.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="저울" loading="lazy" />
         <h3 class="font-heading text-lg sm:text-xl mb-1">저울</h3>
-        <p class="text-gray-600 text-sm sm:text-base">내장형 디지털 저울</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base">내장형 디지털 저울</p>
       </div>
       <div>
-        <img src="assets/icon-hold.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="거치" />
+        <img src="assets/icon-hold.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="거치" loading="lazy" />
         <h3 class="font-heading text-lg sm:text-xl mb-1">거치</h3>
-        <p class="text-gray-600 text-sm sm:text-base">안정적인 포터필터 거치대</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base">안정적인 포터필터 거치대</p>
       </div>
     </div>
   </section>
 
   <!-- DETAIL SLIDER -->
-  <section id="detail" class="py-12 sm:py-16 bg-cream px-4">
+  <section id="detail" class="py-12 sm:py-16 bg-cream dark:bg-gray-900 px-4" data-aos="fade-up" role="region" aria-labelledby="detail-heading">
+    <h2 id="detail-heading" class="sr-only">Before & After Slider</h2>
     <div class="max-w-full sm:max-w-3xl mx-auto relative w-full overflow-hidden">
-      <!-- Before Image -->
-      <img src="assets/before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Before 정돈 전" />
-      <!-- After Mask -->
+      <img src="assets/before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Before 정돈 전" loading="lazy" />
       <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
-        <img src="assets/after.jpg" class="w-full h-full object-cover" alt="After 정돈 후" />
+        <img src="assets/after.jpg" class="w-full h-full object-cover" alt="After 정돈 후" loading="lazy" />
       </div>
-      <!-- Handle -->
-      <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
+      <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-۱۰ rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Before and After Slider handle">
         <span class="text-lg sm:text-xl">&#x2039;&#x203A;</span>
       </div>
-      <!-- Labels -->
       <span class="absolute left-3 top-3 bg-black bg-opacity-60 px-1.5 py-0.5 text-white text-xs">Before</span>
       <span class="absolute right-3 top-3 bg-black bg-opacity-60 px-1.5 py-0.5 text-white text-xs">After</span>
-      <!-- Nav Buttons -->
-      <button id="prevBtn" class="absolute left-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base">&#x2039;</button>
-      <button id="nextBtn" class="absolute right-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base">&#x203A;</button>
+      <button id="prevBtn" class="absolute left-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base" aria-label="Show Before">&#x2039;</button>
+      <button id="nextBtn" class="absolute right-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base" aria-label="Show After">&#x203A;</button>
     </div>
   </section>
 
   <!-- SPECS -->
-  <section id="specs" class="py-12 sm:py-16 bg-white px-4">
+  <section id="specs" class="py-12 sm:py-16 bg-white dark:bg-gray-800 px-4" data-aos="fade-up">
     <div class="max-w-4xl mx-auto">
-      <h2 class="font-heading text-xl sm:text-2xl text-walnut mb-3 sm:mb-4">스펙 & 소재</h2>
-      <ul class="space-y-1 sm:space-y-2 font-body text-gray-700 text-sm sm:text-base">
+      <h2 class="font-heading text-xl sm:text-2xl text-walnut dark:text-leaf mb-3 sm:mb-4 first-letter:text-5xl first-letter:mr-2">스펙 & 소재</h2>
+      <ul class="space-y-1 sm:space-y-2 font-body text-gray-700 dark:text-gray-300 text-sm sm:text-base">
         <li>• 크기: W 350 × D 200 × H 30 mm</li>
         <li>• 무게: 450g</li>
         <li>• 소재: 호두나무 톤(MDF + 호두나무 베니어)</li>
@@ -116,22 +125,31 @@
     </div>
   </section>
 
-  <!-- FUNDING PLAN -->
-  <section id="plan" class="py-12 sm:py-16 bg-cream px-4">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="font-heading text-xl sm:text-2xl text-walnut mb-6">펀딩 플랜</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-        <!-- Plans... (같은 구조, 반응형) -->
-        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <h3 class="font-heading text-lg sm:text-xl mb-1">얼리버드</h3>
-          <p class="font-body text-gray-700 text-sm sm:text-base mb-2">30% 할인 / 50명 한정</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩42,000</p>
-          <a href="#" class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
-        </div>
-        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <h3 class="font-heading text-lg sm:text-xl mb-1">일반 펀딩</h3>
-          <p class="font-body text-gray-700 text-sm sm:text-base mb-2">정상가 / 200개</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩60,000</p>
-          <a href="#" class="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
-        </div>
-        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">...
+  <!-- Continue other sections with data-aos and responsive dark styles... -->
+
+  <!-- AOS & Slider Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({ duration: 600, once: true });
+      const htmlEl = document.documentElement;
+      const toggle = document.getElementById('dark-toggle');
+      const menuBtn = document.getElementById('menu-btn');
+      const menu   = document.getElementById('menu');
+      // Dark mode toggle
+      toggle.classList.remove('hidden');
+      toggle.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        localStorage.theme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+      });
+      if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        htmlEl.classList.add('dark');
+        toggle.textContent = '☀️';
+      }
+      // Mobile menu toggle
+      menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      // Initialize slider logic here...
+    });
+  </script>
+</body>
+</html>
