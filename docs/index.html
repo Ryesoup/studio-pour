@@ -28,6 +28,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: { walnut: "#6B4F3B", cream: "#F5F1EA", leaf: "#A3B18A" },
@@ -48,39 +49,54 @@
 </head>
 <body class="bg-cream text-gray-800 font-body dark:bg-gray-900 dark:text-gray-200">
 
-  <!-- HEADER -->
-  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50" role="banner">
-    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-      <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
-      <nav id="menu" class="hidden md:flex space-x-6" role="navigation" aria-label="주요 섹션">
-        <a href="#hero"        class="hover:text-walnut">Home</a>
-        <a href="#features"    class="hover:text-walnut">기능</a>
-        <a href="#specs"       class="hover:text-walnut">스펙</a>
-        <a href="#plan"        class="hover:text-walnut">제품</a>
-        <a href="#testimonials"class="hover:text-walnut">후기</a>
-        <a href="#demo"        class="hover:text-walnut">데모</a>
-        <a href="#newsletter"  class="hover:text-walnut">구독</a>
-      </nav>
-      <button id="theme-toggle" class="mr-4 md:mr-0" aria-label="다크 모드 토글">🌙</button>
-      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="메뉴 열기">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-    <nav id="mobile-menu" class="hidden bg-white dark:bg-gray-800" role="navigation">
-      <div class="flex flex-col space-y-2 px-4 py-2">
-        <a href="#hero"        class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
-        <a href="#features"    class="py-2 border-b border-gray-200 dark:border-gray-700">기능</a>
-        <a href="#specs"       class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
-        <a href="#plan"        class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
-        <a href="#testimonials"class="py-2 border-b border-gray-200 dark:border-gray-700">후기</a>
-        <a href="#demo"        class="py-2 border-b border-gray-200 dark:border-gray-700">데모</a>
-        <a href="#newsletter"  class="py-2">구독</a>
-      </div>
+<!-- HEADER -->
+<header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50" role="banner">
+  <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
+    <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
+
+    <!-- Desktop nav: 기본 라이트 모드에선 gray-700, 다크 모드에선 gray-200 -->
+    <nav
+      id="menu"
+      class="hidden md:flex space-x-6 text-gray-700 dark:text-gray-200"
+      role="navigation"
+      aria-label="주요 섹션"
+    >
+      <a href="#hero"       class="hover:text-walnut">Home</a>
+      <a href="#features"   class="hover:text-walnut">기능</a>
+      <a href="#specs"      class="hover:text-walnut">스펙</a>
+      <a href="#plan"       class="hover:text-walnut">제품</a>
+      <a href="#testimonials" class="hover:text-walnut">후기</a>
+      <a href="#demo"       class="hover:text-walnut">데모</a>
+      <a href="#newsletter" class="hover:text-walnut">구독</a>
     </nav>
-  </header>
+
+    <!-- Dark mode toggle -->
+    <button id="theme-toggle" class="mr-4 md:mr-0" aria-label="다크 모드 토글">🌙</button>
+    <!-- Mobile menu btn -->
+    <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="메뉴 열기">
+      <!-- 햄버거 아이콘 SVG -->
+    </button>
+  </div>
+
+  <!-- Mobile nav: 링크 텍스트만 dark:text-gray-200 으로 바뀌도록 -->
+  <nav
+    id="mobile-menu"
+    class="hidden bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200"
+    role="navigation"
+  >
+    <div class="flex flex-col space-y-2 px-4 py-2">
+      <a href="#hero"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">Home</a>
+      <a href="#features"    class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">기능</a>
+      <a href="#specs"       class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">스펙</a>
+      <a href="#plan"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">제품</a>
+      <a href="#testimonials"class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">후기</a>
+      <a href="#demo"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">데모</a>
+      <a href="#newsletter"  class="py-2 hover:text-walnut">구독</a>
+    </div>
+  </nav>
+</header>
+
+
 
   <!-- HERO -->
   <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]" data-aos="fade-up" role="banner">
@@ -180,14 +196,37 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section id="newsletter" class="py-16 bg-cream" data-aos="fade-up">
-    <h2 class="font-heading text-2xl text-center mb-4">펀딩 소식 알림 신청</h2>
-    <form action="https://formspree.io/f/yourFormId" method="POST" class="max-w-md mx-auto flex flex-col space-y-4">
-      <input type="email" name="email" placeholder="이메일 주소" required class="p-3 rounded border"/>
-      <button type="submit" class="bg-walnut text-cream py-2 rounded">구독하기</button>
-    </form>
-  </section>
+<!-- NEWSLETTER -->
+<section id="newsletter"
+         class="py-16 bg-cream dark:bg-gray-800"
+         data-aos="fade-up">
+  <h2 class="font-heading text-2xl text-walnut dark:text-cream text-center mb-4">
+    펀딩 소식 알림 신청
+  </h2>
+  <form action="https://formspree.io/f/yourFormId"
+        method="POST"
+        class="max-w-md mx-auto flex flex-col space-y-4">
+    <input
+      type="email"
+      name="email"
+      placeholder="이메일 주소"
+      required
+      class="w-full p-3 rounded border border-gray-300 dark:border-gray-600
+             bg-white dark:bg-gray-700
+             text-gray-800 dark:text-gray-200
+             placeholder-gray-600 dark:placeholder-gray-400
+             focus:outline-none focus:ring-2 focus:ring-leaf"/>
+    <button
+      type="submit"
+      class="w-full py-2 rounded bg-walnut hover:bg-walnut/90
+             text-cream dark:text-gray-900
+             font-body transition">
+      구독하기
+    </button>
+  </form>
+</section>
+
+
 
   <!-- FOOTER -->
   <footer class="py-8 bg-gray-100 dark:bg-gray-800 text-center">
@@ -198,12 +237,15 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
   <script>
+    // AOS
     AOS.init({ once: true });
 
-    document.getElementById('menu-btn').addEventListener('click', ()=>{
+    // Mobile menu toggle
+    document.getElementById('menu-btn').addEventListener('click', () => {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
 
+    // Dark mode toggle
     const themeToggle = document.getElementById('theme-toggle');
     if (localStorage.theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -215,6 +257,7 @@
       localStorage.theme = isDark ? 'dark' : 'light';
     });
 
+    // FAQ accordion
     document.querySelectorAll('#faq button').forEach(btn => {
       btn.addEventListener('click', () => {
         const panel = btn.nextElementSibling;
@@ -225,10 +268,12 @@
       });
     });
 
+    // Slick slider
     document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.slider').slick({ dots:true, arrows:false, autoplay:true });
+      document.querySelector('.slider') && $('.slider').slick({ dots:true, arrows:false, autoplay:true });
     });
 
+    // Register service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
