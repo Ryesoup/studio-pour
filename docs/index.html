@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Studio Pour</title>
   <meta name="description" content="작지만 단단한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대" />
-  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" href="assets/images/favicon.ico" />
 
   <!-- Tailwind CDN & 커스텀 설정 -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -36,11 +36,11 @@
     <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
       <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
       <nav id="menu" class="hidden md:flex space-x-6 text-gray-700 dark:text-gray-200 font-body">
-        <a href="#hero"    class="hover:text-walnut">Home</a>
-        <a href="#features" class="hover:text-walnut">기능</a>
-        <a href="#specs"     class="hover:text-walnut">스펙</a>
-        <a href="#plan"      class="hover:text-walnut">제품</a>
-        <a href="#faq"       class="hover:text-walnut">FAQ</a>
+        <a href="#hero"       class="hover:text-walnut">Home</a>
+        <a href="#features"   class="hover:text-walnut">기능</a>
+        <a href="#specs"      class="hover:text-walnut">스펙</a>
+        <a href="#plan"       class="hover:text-walnut">제품</a>
+        <a href="#faq"        class="hover:text-walnut">FAQ</a>
       </nav>
       <button id="menu-btn" class="md:hidden focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,11 +52,11 @@
     <!-- Mobile menu -->
     <nav id="mobile-menu" class="hidden bg-white dark:bg-gray-800">
       <div class="flex flex-col space-y-2 px-4 py-2">
-        <a href="#hero"    class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
-        <a href="#features" class="py-2 border-b border-gray-200 dark:border-gray-700">기능</a>
-        <a href="#specs"     class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
-        <a href="#plan"      class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
-        <a href="#faq"       class="py-2">FAQ</a>
+        <a href="#hero"       class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
+        <a href="#features"   class="py-2 border-b border-gray-200 dark:border-gray-700">기능</a>
+        <a href="#specs"      class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
+        <a href="#plan"       class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
+        <a href="#faq"        class="py-2">FAQ</a>
       </div>
     </nav>
   </header>
@@ -79,17 +79,17 @@
   <section id="features" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
       <div>
-        <img src="assets/icon-dosing.svg" class="mx-auto mb-4 w-16" alt="도징"/>
+        <img src="assets/images/dosing.png" class="mx-auto mb-4 w-16 h-16 object-contain" alt="도징 부분 이미지"/>
         <h3 class="font-heading text-xl mb-2">도징</h3>
         <p class="text-gray-600 dark:text-gray-400">정확한 커피 도징 구조</p>
       </div>
       <div>
-        <img src="assets/icon-hold.svg" class="mx-auto mb-4 w-16" alt="거치"/>
+        <img src="assets/images/hold.png" class="mx-auto mb-4 w-16 h-16 object-contain" alt="거치 부분 이미지"/>
         <h3 class="font-heading text-xl mb-2">거치</h3>
         <p class="text-gray-600 dark:text-gray-400">안정적인 포터필터 거치대</p>
       </div>
       <div>
-        <img src="assets/icon-clean.svg" class="mx-auto mb-4 w-16" alt="정리"/>
+        <img src="assets/images/organize.png" class="mx-auto mb-4 w-16 h-16 object-contain" alt="정리 부분 이미지"/>
         <h3 class="font-heading text-xl mb-2">정리</h3>
         <p class="text-gray-600 dark:text-gray-400">흩어진 바 공간 정돈</p>
       </div>
@@ -101,19 +101,15 @@
     <div class="max-w-3xl mx-auto px-4">
       <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6 text-center">Before & After</h2>
       <div class="relative w-full overflow-hidden" id="slider-container">
-        <!-- Before -->
-        <img src="assets/before.jpg" class="absolute inset-0 w-full h-auto object-cover" alt="Before"/>
-        <!-- After (mask) -->
+        <img src="assets/images/before.jpg" class="absolute inset-0 w-full h-auto object-cover" alt="Before"/>
         <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
-          <img src="assets/after.jpg" class="w-full h-auto object-cover" alt="After"/>
+          <img src="assets/images/after.jpg" class="w-full h-auto object-cover" alt="After"/>
         </div>
-        <!-- Handle -->
         <div id="slider-handle"
              class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2
                     w-10 h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
           <span class="text-xl">‹›</span>
         </div>
-        <!-- Navigation buttons -->
         <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow">‹</button>
         <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow">›</button>
       </div>
@@ -139,21 +135,21 @@
       <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6">제품 소개 & 가격</h2>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
         <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/product-redoak.jpg" alt="레드오크" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <img src="assets/images/product-redoak.jpg" alt="레드오크" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
           <h3 class="font-heading text-lg sm:text-xl mb-1">레드오크 에디션</h3>
           <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">10명 한정</p>
           <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩439,000</p>
           <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
         <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/product-walnut.jpg" alt="호두나무" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <img src="assets/images/product-walnut.jpg" alt="호두나무" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
           <h3 class="font-heading text-lg sm:text-xl mb-1">호두나무 에디션</h3>
           <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">20명 한정</p>
           <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩519,000</p>
           <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
         <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/product-set.jpg" alt="세트 옵션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <img src="assets/images/product-set.jpg" alt="세트 옵션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
           <h3 class="font-heading text-lg sm:text-xl mb-1">세트 옵션</h3>
           <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">한정수량</p>
           <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩949,000</p>
@@ -183,7 +179,6 @@
           제품은 100% 목재 수제로 제작되며, 나무 고유의 색상과 결이 조금씩 다르고 표면에 단차가 있을 수 있습니다. 이로 인한 휨·뒤틀림 등은 불량으로 간주되지 않아 반품 및 환불이 어려운 점 양해 부탁드립니다.
         </div>
       </div>
-      <!-- 필요 시 추가 질문을 같은 포맷으로 삽입 -->
     </div>
   </section>
 
@@ -208,10 +203,10 @@
     document.querySelectorAll('#faq button').forEach(btn => {
       btn.addEventListener('click', () => {
         const panel = btn.nextElementSibling;
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', !expanded);
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
         panel.classList.toggle('hidden');
-        btn.querySelector('span').textContent = expanded ? '+' : '-';
+        btn.querySelector('span').textContent = open ? '+' : '-';
       });
     });
   </script>
