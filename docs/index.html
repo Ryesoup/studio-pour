@@ -2,180 +2,219 @@
 <html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Studio Pour - 홈카페 올인원 스테이션</title>
-  <!-- SEO Metadata -->
-  <meta name="description" content="Studio Pour의 올인원 홈카페 스테이션 - 포터필터 거치, 도징을 하나로, 따뜻한 호두나무 무드" />
-  <meta property="og:title" content="Studio Pour 홈카페 스테이션" />
-  <meta property="og:description" content="작지만 단단한 나만의 홈카페 스테이션" />
-  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/hero-3d.png" />
-  <meta property="og:url" content="https://ryesoup.github.io/studio-pour/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Studio Pour</title>
+  <meta name="description" content="작지만 단단한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대" />
   <link rel="icon" href="assets/favicon.ico" />
-  <!-- AOS Animation CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <!-- Tailwind CDN & Custom Config -->
+
+  <!-- Tailwind CDN & 커스텀 설정 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            walnut: '#6B4F3B',
-            cream:  '#F5F1EA',
-            leaf:   '#A3B18A',
+            walnut: "#6B4F3B",
+            cream : "#F5F1EA",
+            leaf  : "#A3B18A",
           },
           fontFamily: {
-            heading: ['\u2018Noto Sans KR\u2019', 'sans-serif'],
-            body:    ['\u2018Noto Sans KR\u2019', 'sans-serif'],
-          }
+            heading: ["'Noto Sans KR'", "sans-serif"],
+            body   : ["'Noto Sans KR'", "sans-serif"],
+          },
         }
       }
     }
   </script>
+  <!-- AOS.js for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 </head>
-<body class="bg-cream font-body text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+<body class="bg-cream text-gray-800 font-body dark:bg-gray-900 dark:text-gray-200">
 
   <!-- HEADER -->
-  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50 dark:bg-gray-800 dark:bg-opacity-70" role="banner">
+  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50">
     <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-      <a href="#" class="text-walnut dark:text-leaf font-heading text-2xl">Studio Pour</a>
-      <!-- Dark Mode Toggle -->
-      <button id="dark-toggle" class="hidden sm:inline text-xl focus:outline-none" aria-label="Toggle Dark Mode">🌙</button>
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none" aria-label="Open Navigation">&#9776;</button>
-      <!-- Navigation -->
-      <nav id="menu" class="hidden md:flex space-x-6 font-body" role="navigation" aria-label="Main Navigation">
-        <a href="#hero" class="hover:text-walnut dark:hover:text-leaf transition">Home</a>
-        <a href="#features" class="hover:text-walnut dark:hover:text-leaf transition">기능</a>
-        <a href="#specs"    class="hover:text-walnut dark:hover:text-leaf transition">스펙</a>
-        <a href="#products" class="hover:text-walnut dark:hover:text-leaf transition">제품</a>
-        <a href="#faq"      class="hover:text-walnut dark:hover:text-leaf transition">FAQ</a>
+      <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
+      <nav id="menu" class="hidden md:flex space-x-6 text-gray-700 dark:text-gray-200 font-body">
+        <a href="#hero"    class="hover:text-walnut">Home</a>
+        <a href="#features" class="hover:text-walnut">기능</a>
+        <a href="#specs"     class="hover:text-walnut">스펙</a>
+        <a href="#plan"      class="hover:text-walnut">제품</a>
+        <a href="#faq"       class="hover:text-walnut">FAQ</a>
       </nav>
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
+    <!-- Mobile menu -->
+    <nav id="mobile-menu" class="hidden bg-white dark:bg-gray-800">
+      <div class="flex flex-col space-y-2 px-4 py-2">
+        <a href="#hero"    class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
+        <a href="#features" class="py-2 border-b border-gray-200 dark:border-gray-700">기능</a>
+        <a href="#specs"     class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
+        <a href="#plan"      class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
+        <a href="#faq"       class="py-2">FAQ</a>
+      </div>
+    </nav>
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="pt-24 bg-cream dark:bg-gray-900 flex items-center justify-center min-h-[80vh] px-4" data-aos="fade-up">
-    <div class="text-center w-full max-w-md">
-      <img src="assets/hero-3d.png" alt="올인원 스테이션" loading="lazy" class="mx-auto mb-6 w-full shadow-lg rounded-2xl" />
-      <h1 class="font-heading text-3xl sm:text-4xl md:text-5xl text-walnut dark:text-leaf mb-4 leading-tight first-letter:text-5xl first-letter:font-heading first-letter:mr-2">
-        작지만 단단한<br />
-        나만의 홈카페 스테이션
+  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]" data-aos="fade-up">
+    <div class="text-center px-4">
+      <img src="assets/hero-3d.png" alt="올인원 스테이션" class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl"/>
+      <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4">
+        작지만 단단한<br>나만의 홈카페 스테이션
       </h1>
-      <a href="https://www.wadiz.kr/web/campaign/detail/00000" class="inline-block mt-2 px-5 py-3 bg-walnut text-cream dark:bg-leaf dark:text-gray-900 rounded-full shadow hover:shadow-md transition" role="button">펀딩 바로가기</a>
+      <a href="https://www.wadiz.kr/web/campaign/detail/00000"
+         class="inline-block mt-2 px-6 py-3 bg-walnut text-cream font-body rounded-full shadow hover:shadow-md transition">
+        펀딩 바로가기
+      </a>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section id="features" class="py-12 sm:py-16 bg-white dark:bg-gray-800 px-4" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+  <section id="features" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
       <div>
-        <img src="assets/icon-dosing.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="도징" loading="lazy" />
-        <h3 class="font-heading text-lg sm:text-xl mb-1">도징</h3>
-        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base">정확한 커피 도징 구조</p>
+        <img src="assets/icon-dosing.svg" class="mx-auto mb-4 w-16" alt="도징"/>
+        <h3 class="font-heading text-xl mb-2">도징</h3>
+        <p class="text-gray-600 dark:text-gray-400">정확한 커피 도징 구조</p>
       </div>
       <div>
-        <img src="assets/icon-hold.svg" class="mx-auto mb-3 w-12 sm:w-16" alt="거치" loading="lazy" />
-        <h3 class="font-heading text-lg sm:text-xl mb-1">거치</h3>
-        <p class="text-gray-600 dark:text-gray-300 text-sm sm:text-base">안정적인 포터필터 거치대</p>
+        <img src="assets/icon-hold.svg" class="mx-auto mb-4 w-16" alt="거치"/>
+        <h3 class="font-heading text-xl mb-2">거치</h3>
+        <p class="text-gray-600 dark:text-gray-400">안정적인 포터필터 거치대</p>
+      </div>
+      <div>
+        <img src="assets/icon-clean.svg" class="mx-auto mb-4 w-16" alt="정리"/>
+        <h3 class="font-heading text-xl mb-2">정리</h3>
+        <p class="text-gray-600 dark:text-gray-400">흩어진 바 공간 정돈</p>
       </div>
     </div>
   </section>
 
-  <!-- DETAIL SLIDER -->
-  <section id="detail" class="py-12 sm:py-16 bg-cream dark:bg-gray-900 px-4" data-aos="fade-up" role="region" aria-labelledby="detail-heading">
-    <h2 id="detail-heading" class="sr-only">Before & After Slider</h2>
-    <div class="max-w-full sm:max-w-3xl mx-auto relative w-full overflow-hidden">
-      <img src="assets/before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Before 정돈 전" loading="lazy" />
-      <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
-        <img src="assets/after.jpg" class="w-full h-full object-cover" alt="After 정돈 후" loading="lazy" />
+  <!-- SLIDER -->
+  <section id="detail" class="py-16 bg-cream" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6 text-center">Before & After</h2>
+      <div class="relative w-full overflow-hidden" id="slider-container">
+        <!-- Before -->
+        <img src="assets/before.jpg" class="absolute inset-0 w-full h-auto object-cover" alt="Before"/>
+        <!-- After (mask) -->
+        <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
+          <img src="assets/after.jpg" class="w-full h-auto object-cover" alt="After"/>
+        </div>
+        <!-- Handle -->
+        <div id="slider-handle"
+             class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2
+                    w-10 h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
+          <span class="text-xl">‹›</span>
+        </div>
+        <!-- Navigation buttons -->
+        <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow">‹</button>
+        <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-white rounded-full shadow">›</button>
       </div>
-      <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Before and After Slider handle">
-        <span class="text-lg sm:text-xl">&#x2039;&#x203A;</span>
-      </div>
-      <span class="absolute left-3 top-3 bg-black bg-opacity-60 px-1.5 py-0.5 text-white text-xs">Before</span>
-      <span class="absolute right-3 top-3 bg-black bg-opacity-60 px-1.5 py-0.5 text-white text-xs">After</span>
-      <button id="prevBtn" class="absolute left-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base" aria-label="Show Before">&#x2039;</button>
-      <button id="nextBtn" class="absolute right-1 top-1/2 transform -translate-y-1/2 p-1 sm:p-2 bg-white rounded-full shadow text-sm sm:text-base" aria-label="Show After">&#x203A;</button>
     </div>
   </section>
 
   <!-- SPECS -->
-  <section id="specs" class="py-12 sm:py-16 bg-white dark:bg-gray-800 px-4" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="font-heading text-xl sm:text-2xl text-walnut dark:text-leaf mb-6">스펙</h2>
-      <ul class="space-y-3 text-gray-700 dark:text-gray-300 list-disc list-inside font-body">
-        <li>크기: W×D×H (mm)</li>
-        <li>무게: ○○g</li>
-        <li>소재: 호두나무 톤</li>
-        <li>제작 및 배송: 국내 제작 · 펀딩 완료 후 2주 이내</li>
+  <section id="specs" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6">스펙 & 소재</h2>
+      <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+        <li>크기: W350 × D200 × H120 mm</li>
+        <li>무게: 850g</li>
+        <li>소재: 호두나무 원목 (국내산)</li>
+        <li>제작 및 배송: 국내 주문제작 · 펀딩 종료 후 약 2주</li>
       </ul>
     </div>
   </section>
 
-  <!-- PRODUCTS -->
-  <section id="products" class="py-12 sm:py-16 bg-cream dark:bg-gray-900 px-4" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="font-heading text-xl sm:text-2xl text-walnut dark:text-leaf mb-6">제품</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/red-oak.jpg" alt="레드오크" loading="lazy" class="mx-auto mb-3 w-full h-40 object-cover rounded-lg" />
-          <h3 class="font-heading text-lg sm:text-xl mb-1">레드오크</h3>
-          <p class="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-2">따뜻한 레드오크 마감 처리</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut dark:text-leaf mb-2">₩439,000</p>
+  <!-- PLAN -->
+  <section id="plan" class="py-16 bg-cream" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6">제품 소개 & 가격</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
+          <img src="assets/product-redoak.jpg" alt="레드오크" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <h3 class="font-heading text-lg sm:text-xl mb-1">레드오크 에디션</h3>
+          <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">10명 한정</p>
+          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩439,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
-        <div class="bg-white dark:bg-gray-800 p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/walnut.jpg" alt="호두나무" loading="lazy" class="mx-auto mb-3 w-full h-40 object-cover rounded-lg" />
-          <h3 class="font-heading text-lg sm:text-xl mb-1">호두나무</h3>
-          <p class="text-gray-700 dark:text-gray-300 text-sm sm:text-base mb-2">자연스러운 호두나무 질감</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut dark:text-leaf mb-2">₩519,000</p>
+        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
+          <img src="assets/product-walnut.jpg" alt="호두나무" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <h3 class="font-heading text-lg sm:text-xl mb-1">호두나무 에디션</h3>
+          <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">20명 한정</p>
+          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩519,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
+        </div>
+        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
+          <img src="assets/product-set.jpg" alt="세트 옵션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <h3 class="font-heading text-lg sm:text-xl mb-1">세트 옵션</h3>
+          <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">한정수량</p>
+          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩949,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-12 sm:py-16 bg-white dark:bg-gray-800 px-4" data-aos="fade-up">
-    <div>
-      <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-expanded="false">
-        배송 기간 <span>+</span>
-      </button>
-      <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
-        펀딩 종료 후 약 2주 이내에 제품을 발송해 드립니다. 다만, 주문량 증가나 제작 상황에 따라 배송이 다소 지연될 수 있으니 여유 있게 기다려 주시기 바랍니다.
+  <section id="faq" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <div class="max-w-2xl mx-auto px-4 space-y-4">
+      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-8 text-center">FAQ</h2>
+      <div>
+        <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-expanded="false">
+          배송 기간 <span>+</span>
+        </button>
+        <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
+          펀딩 종료 후 약 2주 이내에 제품을 발송해 드립니다. 다만, 주문량 증가나 제작 상황에 따라 배송이 다소 지연될 수 있으니 여유 있게 기다려 주시기 바랍니다.
+        </div>
       </div>
-    </div>
-    <div>
-      <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-expanded="false">
-        AS 정책 <span>+</span>
-      </button>
-      <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
-        제품은 100% 목재 수제로 제작되며, 나무 고유의 색상과 결이 조금씩 다를 수 있습니다. 이로 인한 휨·뒤틀림 등은 불량으로 간주되지 않아 반품 및 환불이 어려운 점 양해 부탁드립니다.
+      <div>
+        <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-expanded="false">
+          AS 정책 <span>+</span>
+        </button>
+        <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
+          제품은 100% 목재 수제로 제작되며, 나무 고유의 색상과 결이 조금씩 다르고 표면에 단차가 있을 수 있습니다. 이로 인한 휨·뒤틀림 등은 불량으로 간주되지 않아 반품 및 환불이 어려운 점 양해 부탁드립니다.
+        </div>
       </div>
+      <!-- 필요 시 추가 질문을 같은 포맷으로 삽입 -->
     </div>
-    
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-6 bg-cream dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-4" role="contentinfo">
-    <div class="max-w-4xl mx-auto text-center font-body">
-      <p>&copy; 2025 Studio Pour. All rights reserved.</p>
-      <div class="space-x-4 mt-2">
-        <a href="#" class="hover:text-walnut dark:hover:text-leaf">Privacy Policy</a>
-        <a href="#" class="hover:text-walnut dark:hover:text-leaf">Terms of Service</a>
-      </div>
-    </div>
+  <footer class="py-8 bg-gray-100 dark:bg-gray-800 text-center">
+    <p class="text-sm text-gray-600 dark:text-gray-400">© 2025 Studio Pour. All rights reserved.</p>
   </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
-    const toggle = document.getElementById('dark-toggle');
-    toggle.addEventListener('click', () => document.documentElement.classList.toggle('dark'));
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('menu');
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    AOS.init({ once: true });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('#faq button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        panel.classList.toggle('hidden');
+        btn.querySelector('span').textContent = expanded ? '+' : '-';
+      });
+    });
   </script>
+  <script src="js/slider.js"></script>
 </body>
 </html>
