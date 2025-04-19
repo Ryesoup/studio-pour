@@ -29,14 +29,24 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
   <style>
-    #backToTop { display:none; position:fixed; bottom:2rem; right:2rem; background:#CE9E55; color:#F5F1EA; padding:0.5rem; border-radius:9999px; }
-    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; }
-    #lightbox img { max-width:90%; max-height:90%; }
-    .progress-container { background:#ddd; border-radius:0.5rem; overflow:hidden; }
-    .progress-bar { height:0.75rem; background:#CE9E55; width:0%; }
-    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; z-index:60; }
-    .modal-content { background:white; padding:1rem; border-radius:0.5rem; max-width:90%; }
-    .faq-item + .faq-item { margin-top:1rem; }
+    /* Back to Top button */
+    #backToTop { display: none; position: fixed; bottom: 2rem; right: 2rem; background: #CE9E55; color: #F5F1EA; padding: 0.5rem; border-radius: 9999px; cursor: pointer; }
+    /* Lightbox overlay */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 50; }
+    #lightbox img { max-width: 90%; max-height: 90%; }
+    /* Progress bar */
+    .progress-container { background: #ddd; border-radius: 0.5rem; overflow: hidden; }
+    .progress-bar { height: 0.75rem; background: #CE9E55; width: 0%; }
+    /* Modal */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 60; }
+    .modal-content { background: white; padding: 1rem; border-radius: 0.5rem; max-width: 90%; }
+    /* FAQ spacing */
+    .faq-item + .faq-item { margin-top: 1rem; }
+    /* Fade-in animation */
+    .animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    /* Touch optimization */
+    .lightbox-target, button, a { touch-action: manipulation; }
   </style>
 </head>
 <body class="bg-[#F5F1EA] text-[#6E7468] font-body">
@@ -45,7 +55,7 @@
   <button id="backToTop" aria-label="맨 위로">↑</button>
 
   <!-- HEADER -->
-  <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur z-50 py-2 sm:py-4">
+  <header class="sticky top-0 w-full bg-white bg-opacity-90 backdrop-blur z-50 py-2 sm:py-4">
     <div class="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6">
       <a href="#hero" class="flex items-center space-x-2">
         <img src="assets/images/logo-cat.png" alt="Studio Pour 로고" class="h-8 w-8">
@@ -80,8 +90,16 @@
     <!-- HERO -->
     <section id="hero" class="py-16 bg-[#6E7468]/80" data-aos="fade-up">
       <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
-        <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">작지만 견고한<br>홈카페 스테이션</h1>
-        <a href="#plan" id="track-plan" class="inline-block mt-4 px-6 py-2 sm:px-8 sm:py-3 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition" data-aos="fade-up" data-aos-delay="200">제품 보러가기</a>
+        <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">
+          도징, 거치, 정리를 하나로<br>홈카페를 정돈하는 올인원 스테이션
+        </h1>
+        <picture>
+          <source srcset="assets/images/hero-3d-small.webp" media="(max-width: 640px)" type="image/webp">
+          <source srcset="assets/images/hero-3d-small.png" media="(max-width: 640px)">
+          <source srcset="assets/images/hero-3d.webp" type="image/organize.png">
+          <img src="assets/images/hero-3d.png" alt="올인원 스테이션" class="mx-auto mb-8 w-full max-w-md rounded-2xl shadow-lg" loading="lazy">
+        </picture>
+        <a href="#plan" id="track-plan" class="inline-block mt-4 px-8 py-4 sm:px-10 sm:py-5 bg-[#CE9E55] text-[#F5F1EA] rounded-lg hover:bg-[#b38e48] transition focus:outline-none focus:ring-2 focus:ring-[#F5F1EA]" data-aos="fade-up" data-aos-delay="200">제품 살펴보기</a>
       </div>
     </section>
 
@@ -102,11 +120,11 @@
     <section id="features" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
       <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
         <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-12">주요 기능</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 px-2 sm:px-0">
           <div data-aos="zoom-in" data-aos-delay="100">
             <img loading="lazy" src="assets/images/dosing.png" alt="정밀 도징" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">도징 스테이션</h3>
-            <p class="text-sm sm:text-base">분리형 도징 스테이션을 일체형으로 통합하여 정밀하고 일관된 커피 분쇄량을 제공합니다.</p>
+            <p class="text-sm sm:text-base">분리형 도징 스테이션을 일체형으로 통합하여 언제나 정확하고 일관된 도징을 경험할 수 있습니다.</p>
           </div>
           <div data-aos="zoom-in" data-aos-delay="200">
             <img loading="lazy" src="assets/images/hold.png" alt="세련된 디자인" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
@@ -202,6 +220,8 @@
   <footer class="py-8 bg-gray-100 text-center">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <p class="text-sm text-gray-600">© 2025 Studio Pour. All rights reserved.</p>
+      <p class="text-sm text-gray-600">대표자: 최원석</p>
+      <p class="text-sm text-gray-600">이메일: rye721@naver.com</p>
     </div>
   </footer>
 
