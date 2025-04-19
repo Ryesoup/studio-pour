@@ -5,278 +5,297 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){dataLayer.push(arguments);}  
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXX');
   </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Pour</title>
-  <meta name="description" content="작지만 단단한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대" />
+  <meta name="description" content="작지만 견고한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대">
 
-  <!-- Open Graph & Twitter -->
-  <meta property="og:title" content="Studio Pour 홈카페 스테이션" />
-  <meta property="og:description" content="작지만 단단한 올인원 포터필터 거치대" />
-  <meta property="og:image"   content="https://ryesoup.github.io/studio-pour/assets/images/hero-3d.png" />
-  <meta name="twitter:card"    content="summary_large_image" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studio Pour 홈카페 스테이션">
+  <meta property="og:description" content="컴팩트하지만 강력한 포터필터 거치 솔루션">
+  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/images/hero-3d.png">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="assets/images/favicon.ico" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/images/favicon.ico">
+  <link rel="manifest" href="manifest.json">
 
-  <!-- Tailwind & Custom config -->
+  <!-- Tailwind CSS & Plugins -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+  <style>
+    #backToTop { display:none; position:fixed; bottom:2rem; right:2rem; background:#CE9E55; color:#F5F1EA; padding:0.5rem; border-radius:9999px; }
+    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; }
+    #lightbox img { max-width:90%; max-height:90%; }
+    .progress-container { background:#ddd; border-radius:0.5rem; overflow:hidden; }
+    .progress-bar { height:0.75rem; background:#CE9E55; width:0%; }
+    .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; z-index:60; }
+    .modal-content { background:white; padding:1rem; border-radius:0.5rem; max-width:90%; }
+    .faq-item + .faq-item { margin-top:1rem; }
+  </style>
+</head>
+<body class="bg-[#F5F1EA] text-[#6E7468] font-body">
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="맨 위로">↑</button>
+
+  <!-- HEADER -->
+  <header class="fixed w-full bg-white bg-opacity-90 backdrop-blur z-50 py-2 sm:py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6">
+      <a href="#hero" class="flex items-center space-x-2">
+        <img src="assets/images/logo-cat.png" alt="Studio Pour 로고" class="h-8 w-8">
+        <span class="font-heading text-lg sm:text-xl hover:text-[#CE9E55] transition">Studio Pour</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-gray-700">
+        <a href="#hero" class="hover:text-[#CE9E55]">Home</a>
+        <a href="#features" class="hover:text-[#CE9E55]">기능</a>
+        <a href="#specs" class="hover:text-[#CE9E55]">스펙</a>
+        <a href="#plan" class="hover:text-[#CE9E55]">제품</a>
+        <a href="#funding" class="hover:text-[#CE9E55]">펀딩</a>
+        <a href="#reviews" class="hover:text-[#CE9E55]">후기</a>
+        <a href="#faq" class="hover:text-[#CE9E55]">FAQ</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden focus:outline-none text-2xl">☰</button>
+    </div>
+    <nav id="mobile-menu" class="hidden bg-white">
+      <div class="flex flex-col px-4 py-2 space-y-2">
+        <a href="#hero" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">Home</a>
+        <a href="#features" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">기능</a>
+        <a href="#specs" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">스펙</a>
+        <a href="#plan" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">제품</a>
+        <a href="#funding" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">펀딩</a>
+        <a href="#reviews" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">후기</a>
+        <a href="#faq" class="py-2 hover:text-[#CE9E55]">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pt-20">
+
+    <!-- HERO -->
+    <section id="hero" class="py-16 bg-[#6E7468]/80" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">작지만 견고한<br>홈카페 스테이션</h1>
+        <a href="#plan" id="track-plan" class="inline-block mt-4 px-6 py-2 sm:px-8 sm:py-3 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition" data-aos="fade-up" data-aos-delay="200">제품 보러가기</a>
+      </div>
+    </section>
+
+    <!-- FUNDING SECTION -->
+    <section id="funding" class="py-16 bg-[#ECEDEB] text-center" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-4">와디즈에서 펀딩하세요</h2>
+        <p id="stats" class="text-gray-700 mb-2">참여자: <span id="participantCount">--</span>명 • 남은 재고: <span id="stockCount">--</span>개</p>
+        <div class="progress-container mb-4">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <p id="countdown" class="text-base sm:text-lg text-gray-700 mb-6"></p>
+        <a href="https://www.wadiz.kr/web/campaign/detail/00000" id="track-funding" class="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">펀딩 바로가기</a>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-12">주요 기능</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+          <div data-aos="zoom-in" data-aos-delay="100">
+            <img loading="lazy" src="assets/images/dosing.png" alt="정밀 도징" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">도징 스테이션</h3>
+            <p class="text-sm sm:text-base">분리형 도징 스테이션을 일체형으로 통합하여 정밀하고 일관된 커피 분쇄량을 제공합니다.</p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="200">
+            <img loading="lazy" src="assets/images/hold.png" alt="세련된 디자인" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">세련된 디자인</h3>
+            <p class="text-sm sm:text-base">목재 목심 구조로 고급스러운 디자인을 완성했으며, 컴팩트한 크기로 공간 활용도를 극대화합니다.</p>
+          </div>
+          <div data-aos="zoom-in" data-aos-delay="300">
+            <img loading="lazy" src="assets/images/organize.png" alt="깔끔한 정리" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">깔끔한 정리</h3>
+            <p class="text-sm sm:text-base">포터필터, 탬퍼, 저울 등 바 도구를 한곳에 정리해 효율적인 작업 공간을 제공합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section id="specs" class="py-16 bg-[#ECEDEB]" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-6">스펙 & 소재</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-800">
+          <li>크기: 가로 300 × 세로 315 × 높이 315 mm</li>
+          <li>무게: 약 3kg</li>
+          <li>소재: 레드오크 또는 호두나무 원목</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="plan" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-8 text-center">제품 소개 & 가격</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex flex-col items-center text-center p-4">
+            <button data-id="redoak" class="mb-2 text-xl">☆</button>
+            <img loading="lazy" src="assets/images/product-redoak.png" alt="레드오크 에디션" class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
+            <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">레드오크 에디션</h3>
+            <p class="text-2xl text-[#CE9E55] mb-4">₩439,000</p>
+            <a href="#" class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">선택하기</a>
+          </div>
+          <div class="flex flex-col items-center text-center p-4">
+            <button data-id="walnut" class="mb-2 text-xl">☆</button>
+            <img loading="lazy" src="assets/images/product-walnut.png" alt="호두나무 에디션" class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
+            <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">호두나무 에디션</h3>
+            <p class="text-2xl text-[#CE9E55] mb-4">₩519,000</p>
+            <a href="#" class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">선택하기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section id="qa" class="py-16 bg-white" data-aos="fade-up">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-8 text-center">질문하기</h2>
+        <div class="flex flex-col md:flex-row items-start md:space-x-4">
+          <textarea id="questionInput" rows="3" class="flex-1 p-3 border border-gray-300 rounded-lg mb-4 md:mb-0 focus:outline-none focus:ring-2 focus:ring-[#6E7468] transition" placeholder="궁금하신 내용을 입력하세요..."></textarea>
+          <button id="askBtn" class="w-full md:w-auto px-6 py-3 bg-[#6E7468] text-[#F5F1EA] font-medium rounded-lg hover:bg-[#5a6357] transition">질문하기</button>
+        </div>
+        <div id="answerBox" class="mt-6 p-4 bg-[#F5F1EA] rounded-lg hidden animate-fadeIn">
+          <p class="text-gray-800"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section id="faq" class="py-16 bg-[#F5F1EA]" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-6 text-center">자주 묻는 질문</h2>
+        <div class="space-y-4">
+          <div class="faq-item">
+            <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left font-heading py-2 bg-gray-200 rounded" aria-expanded="false">배송은 얼마나 걸리나요?</button>
+            <div class="hidden p-2 text-gray-700">주문 제작 후 평균 2주 정도 소요됩니다. 다만, 주문량이 많아질 경우 배송 일정이 지연될 수 있으니 참고 부탁드립니다.</div>
+          </div>
+          <div class="faq-item">
+            <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left font-heading py-2 bg-gray-200 rounded" aria-expanded="false">AS는 가능한가요?</button>
+            <div class="hidden p-2 text-gray-700">전체 목재로 제작되어 AS는 제공되지 않습니다. 목재의 자연스러운 특성(결의 차이, 미세한 이음 벌어짐 등)으로 인한 부분은 정상 사양으로 교환 및 환불이 불가하오니 이 점 양해 부탁드립니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALS -->
+  <div id="modal-review" class="modal hidden flex"><div class="modal-content"><button id="closeModal" class="float-right">✕</button><div id="reviewContent" class="mt-4"></div></div></div>
+
+  <!-- OFF-SCREEN INPUT FOR ANALYTICS -->
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: { walnut: "#6B4F3B", cream: "#F5F1EA", leaf: "#A3B18A" },
-          fontFamily: {
-            heading: ["'Noto Sans KR'", "sans-serif"],
-            body:    ["'Noto Sans KR'", "sans-serif"],
-          },
-        }
-      }
-    }
+    function trackEvent(action, label) { gtag('event', action, { 'event_category': 'Conversion Funnel', 'event_label': label }); }
   </script>
 
-  <!-- AOS.css -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
-
-  <!-- Slick carousel CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
-</head>
-<body class="bg-cream text-gray-800 font-body dark:bg-gray-900 dark:text-gray-200">
-
-<!-- HEADER -->
-<header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50" role="banner">
-  <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-    <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
-
-    <!-- Desktop nav: 기본 라이트 모드에선 gray-700, 다크 모드에선 gray-200 -->
-    <nav
-      id="menu"
-      class="hidden md:flex space-x-6 text-gray-700 dark:text-gray-200"
-      role="navigation"
-      aria-label="주요 섹션"
-    >
-      <a href="#hero"       class="hover:text-walnut">Home</a>
-      <a href="#features"   class="hover:text-walnut">기능</a>
-      <a href="#specs"      class="hover:text-walnut">스펙</a>
-      <a href="#plan"       class="hover:text-walnut">제품</a>
-      <a href="#testimonials" class="hover:text-walnut">후기</a>
-      <a href="#demo"       class="hover:text-walnut">데모</a>
-      <a href="#newsletter" class="hover:text-walnut">구독</a>
-    </nav>
-
-    <!-- Dark mode toggle -->
-    <button id="theme-toggle" class="mr-4 md:mr-0" aria-label="다크 모드 토글">🌙</button>
-    <!-- Mobile menu btn -->
-    <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="메뉴 열기">
-      <!-- 햄버거 아이콘 SVG -->
-    </button>
-  </div>
-
-  <!-- Mobile nav: 링크 텍스트만 dark:text-gray-200 으로 바뀌도록 -->
-  <nav
-    id="mobile-menu"
-    class="hidden bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200"
-    role="navigation"
-  >
-    <div class="flex flex-col space-y-2 px-4 py-2">
-      <a href="#hero"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">Home</a>
-      <a href="#features"    class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">기능</a>
-      <a href="#specs"       class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">스펙</a>
-      <a href="#plan"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">제품</a>
-      <a href="#testimonials"class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">후기</a>
-      <a href="#demo"        class="py-2 border-b border-gray-200 dark:border-gray-700 hover:text-walnut">데모</a>
-      <a href="#newsletter"  class="py-2 hover:text-walnut">구독</a>
-    </div>
-  </nav>
-</header>
-
-
-
-  <!-- HERO -->
-  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]" data-aos="fade-up" role="banner">
-    <div class="text-center px-4">
-      <img src="assets/images/hero-3d.png"
-           srcset="assets/images/hero-3d@2x.png 2x"
-           loading="lazy"
-           alt="올인원 스테이션"
-           class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl"/>
-      <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4" itemprop="headline">
-        작지만 단단한<br>나만의 홈카페 스테이션
-      </h1>
-      <a href="https://www.wadiz.kr/web/campaign/detail/00000"
-         class="inline-block mt-2 px-6 py-3 bg-walnut text-cream rounded-full shadow hover:shadow-md transition"
-         role="button">
-        펀딩 바로가기
-      </a>
-      <div class="mt-4 flex justify-center space-x-4">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank" aria-label="페이스북 공유">📘</a>
-        <a href="https://twitter.com/intent/tweet?url=PAGE_URL" target="_blank" aria-label="트위터 공유">🐦</a>
-        <a href="javascript:void(0)" onclick="window.Kakao.Share.link({container: '#kakao-link-btn'});" aria-label="카카오톡 공유">💬</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES -->
-  <section id="features" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
-    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
-      <div role="region" aria-labelledby="feat-dosing">
-        <img src="assets/images/dosing.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
-        <h3 id="feat-dosing" class="font-heading text-xl mb-2">도징</h3>
-        <p>정확한 커피 도징 구조</p>
-      </div>
-      <div role="region" aria-labelledby="feat-hold">
-        <img src="assets/images/hold.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
-        <h3 id="feat-hold" class="font-heading text-xl mb-2">거치</h3>
-        <p>안정적인 포터필터 거치대</p>
-      </div>
-      <div role="region" aria-labelledby="feat-organize">
-        <img src="assets/images/organize.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
-        <h3 id="feat-organize" class="font-heading text-xl mb-2">정리</h3>
-        <p>흩어진 바 공간 정돈</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SPECS -->
-  <section id="specs" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up" role="region" aria-labelledby="specs-title">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 id="specs-title" class="font-heading text-2xl sm:text-3xl text-walnut mb-6">스펙 & 소재</h2>
-      <ul class="space-y-2">
-        <li>크기: W350 × D200 × H120 mm</li>
-        <li>무게: 850g</li>
-        <li>소재: 호두나무 원목 (국내산)</li>
-        <li>제작 및 배송: 국내 주문제작 · 펀딩 종료 후 약 2주</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="plan" class="py-16 bg-cream" data-aos="fade-up" role="region" aria-labelledby="plan-title">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 id="plan-title" class="font-heading text-2xl sm:text-3xl text-walnut mb-6">제품 소개 & 가격</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/images/product-redoak.png" loading="lazy" alt="레드오크 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
-          <h3 class="font-heading text-lg sm:text-xl mb-1">레드오크 에디션</h3>
-          <p class="mb-2">10명 한정</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩439,000</p>
-          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
-        </div>
-        <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/images/product-walnut.png" loading="lazy" alt="호두나무 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
-          <h3 class="font-heading text-lg sm:text-xl mb-1">호두나무 에디션</h3>
-          <p class="mb-2">20명 한정</p>
-          <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩519,000</p>
-          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
-    <h2 class="font-heading text-3xl text-center mb-8">사용자 후기</h2>
-    <div class="slider max-w-2xl mx-auto">
-      <div class="px-4"><p class="italic">“디자인도 좋고, 사용감이 탁월해요!”</p><p class="mt-2">– 김민수</p></div>
-      <div class="px-4"><p class="italic">“매일 커피 타는 시간이 즐거워졌습니다.”</p><p class="mt-2">– 이영희</p></div>
-    </div>
-  </section>
-
-  <!-- DEMO VIDEO -->
-  <section id="demo" class="relative h-[60vh] overflow-hidden" data-aos="fade-up">
-    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop src="assets/video/demo.mp4"></video>
-    <div class="relative z-10 flex items-center justify-center h-full bg-black bg-opacity-40">
-      <h2 class="font-heading text-4xl text-white">제품 사용법 데모</h2>
-    </div>
-  </section>
-
-<!-- NEWSLETTER -->
-<section id="newsletter"
-         class="py-16 bg-cream dark:bg-gray-800"
-         data-aos="fade-up">
-  <h2 class="font-heading text-2xl text-walnut dark:text-cream text-center mb-4">
-    펀딩 소식 알림 신청
-  </h2>
-  <form action="https://formspree.io/f/yourFormId"
-        method="POST"
-        class="max-w-md mx-auto flex flex-col space-y-4">
-    <input
-      type="email"
-      name="email"
-      placeholder="이메일 주소"
-      required
-      class="w-full p-3 rounded border border-gray-300 dark:border-gray-600
-             bg-white dark:bg-gray-700
-             text-gray-800 dark:text-gray-200
-             placeholder-gray-600 dark:placeholder-gray-400
-             focus:outline-none focus:ring-2 focus:ring-leaf"/>
-    <button
-      type="submit"
-      class="w-full py-2 rounded bg-walnut hover:bg-walnut/90
-             text-cream dark:text-gray-900
-             font-body transition">
-      구독하기
-    </button>
-  </form>
-</section>
-
-
-
   <!-- FOOTER -->
-  <footer class="py-8 bg-gray-100 dark:bg-gray-800 text-center">
-    <p class="text-sm text-gray-600 dark:text-gray-400">© 2025 Studio Pour. All rights reserved.</p>
+  <footer class="py-8 bg-gray-100 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <p class="text-sm text-gray-600">© 2025 Studio Pour. All rights reserved.</p>
+    </div>
   </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
   <script>
-    // AOS
     AOS.init({ once: true });
-
-    // Mobile menu toggle
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-
-    // Dark mode toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    if (localStorage.theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      themeToggle.textContent = '☀️';
-    }
-    themeToggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      themeToggle.textContent = isDark ? '☀️' : '🌙';
-      localStorage.theme = isDark ? 'dark' : 'light';
-    });
-
-    // FAQ accordion
-    document.querySelectorAll('#faq button').forEach(btn => {
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+    // Scroll spy
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const observer = new IntersectionObserver(entries => entries.forEach(e => {
+      const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('text-[#CE9E55]'));
+        link?.classList.add('text-[#CE9E55]');
+      }
+    }), { threshold: 0.6 });
+    sections.forEach(s => observer.observe(s));
+    // Back to top
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btn.style.display = window.scrollY > 300 ? 'block' : 'none');
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // Countdown
+    const countdownEl = document.getElementById('countdown');
+    const endDate = new Date('2025-06-30T23:59:59');
+    setInterval(() => {
+      const diff = endDate - new Date();
+      const d = Math.floor(diff / 86400000), h = Math.floor(diff % 86400000 / 3600000);
+      const m = Math.floor(diff % 3600000 / 60000), s = Math.floor(diff % 60000 / 1000);
+      countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 ${m}분 ${s}초 남음`;
+    }, 1000);
+    // Progress
+    document.getElementById('progress-bar').style.width = '75%';
+    // Lightbox
+    document.querySelectorAll('.lightbox-target').forEach(img => img.addEventListener('click', () => {
+      const lb = document.getElementById('lightbox'); lb.querySelector('img').src = img.src; lb.classList.remove('hidden');
+    }));
+    document.getElementById('lightbox').addEventListener('click', () => document.getElementById('lightbox').classList.add('hidden'));
+    // Favorites
+    document.querySelectorAll('button[data-id]').forEach(btn => {
+      const id = btn.dataset.id;
+      btn.textContent = localStorage.getItem(id) ? '★' : '☆';
       btn.addEventListener('click', () => {
-        const panel = btn.nextElementSibling;
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        panel.classList.toggle('hidden');
-        btn.querySelector('span').textContent = open ? '+' : '-';
+        if (localStorage.getItem(id)) { localStorage.removeItem(id); btn.textContent = '☆'; }
+        else { localStorage.setItem(id, '1'); btn.textContent = '★'; }
       });
     });
-
-    // Slick slider
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.slider') && $('.slider').slick({ dots:true, arrows:false, autoplay:true });
+    // Analytics funnel
+    document.getElementById('track-plan').addEventListener('click', () => trackEvent('plan_click', '제품 섹션 이동'));
+    document.getElementById('track-funding').addEventListener('click', () => trackEvent('funding_click', '펀딩 섹션 이동'));
+    // Reviews modal
+    const reviews = {
+      1: '“디자인이 멋지고 사용하기 편리합니다!” – 김민수',
+      2: '“홈카페 시간이 더욱 즐거워졌어요.” – 이영희',
+      3: '“포터필터 거치가 안정적이에요.” – 박철수'
+    };
+    document.querySelectorAll('[data-review]').forEach(btn => btn.addEventListener('click', () => {
+      document.getElementById('reviewContent').textContent = reviews[btn.dataset.review];
+      document.getElementById('modal-review').classList.remove('hidden');
+      trackEvent('review_open', '후기 ' + btn.dataset.review);
+    }));
+    document.getElementById('closeModal').addEventListener('click', () => document.getElementById('modal-review').classList.add('hidden'));
+    // FAQ Accordion
+    document.querySelectorAll('#faq .faq-item button').forEach(btn => {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', () => {
+        const panel = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', (!expanded).toString());
+        panel.classList.toggle('hidden');
+      });
+    });
+    // Q&A Logic
+    const answers = {
+      '배송': '주문 제작 후 평균 2주 정도 소요됩니다. 다만, 주문량이 많아질 경우 배송 일정이 지연될 수 있으니 참고 부탁드립니다.',
+      'AS': '구매 후 1년간 무상 AS를 지원합니다. 단, 목재의 자연스러운 특성(결의 차이, 미세한 이음 벌어짐 등)은 정상 사양으로 교환·환불 대상이 아니므로 양해 부탁드립니다.'
+    };
+    document.getElementById('askBtn').addEventListener('click', () => {
+      const q = document.getElementById('questionInput').value.trim();
+      let reply = '죄송합니다. 추가 문의는 rye721@naver.com으로 연락주세요.';
+      for (const key in answers) {
+        if (q.includes(key)) { reply = answers[key]; break; }
+      }
+      const box = document.getElementById('answerBox');
+      box.textContent = reply;
+      box.classList.remove('hidden');
     });
 
-    // Register service worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
-    }
+    // Mock data for stats
+    document.getElementById('participantCount').textContent = 150;
+    document.getElementById('stockCount').textContent = 20;
   </script>
 </body>
 </html>
