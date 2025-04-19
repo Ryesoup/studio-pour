@@ -1,167 +1,187 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko" class="scroll-smooth" itemscope itemtype="http://schema.org/WebPage">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Studio Pour</title>
   <meta name="description" content="작지만 단단한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대" />
+  <!-- Open Graph & Twitter -->
+  <meta property="og:title" content="Studio Pour 홈카페 스테이션" />
+  <meta property="og:description" content="작지만 단단한 올인원 포터필터 거치대" />
+  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/images/hero-3d.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/images/favicon.ico" />
-
-  <!-- Tailwind CDN & 커스텀 설정 -->
+  <link rel="manifest" href="manifest.json" />
+  <!-- Tailwind & Custom config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            walnut: "#6B4F3B",
-            cream : "#F5F1EA",
-            leaf  : "#A3B18A",
-          },
+          colors: { walnut: "#6B4F3B", cream: "#F5F1EA", leaf: "#A3B18A" },
           fontFamily: {
             heading: ["'Noto Sans KR'", "sans-serif"],
-            body   : ["'Noto Sans KR'", "sans-serif"],
+            body: ["'Noto Sans KR'", "sans-serif"],
           },
         }
       }
     }
   </script>
-  <!-- AOS.css for scroll animations -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <!-- Slick carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
 </head>
 <body class="bg-cream text-gray-800 font-body dark:bg-gray-900 dark:text-gray-200">
 
   <!-- HEADER -->
-  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50">
+  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50" role="banner">
     <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
       <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
-      <nav id="menu" class="hidden md:flex space-x-6 text-gray-700 dark:text-gray-200 font-body">
-        <a href="#hero"     class="hover:text-walnut">Home</a>
+      <!-- Desktop nav -->
+      <nav id="menu" class="hidden md:flex space-x-6" role="navigation" aria-label="주요 섹션">
+        <a href="#hero" class="hover:text-walnut">Home</a>
         <a href="#features" class="hover:text-walnut">기능</a>
-        <a href="#specs"    class="hover:text-walnut">스펙</a>
-        <a href="#plan"     class="hover:text-walnut">제품</a>
-        <a href="#faq"      class="hover:text-walnut">FAQ</a>
+        <a href="#specs" class="hover:text-walnut">스펙</a>
+        <a href="#plan" class="hover:text-walnut">제품</a>
+        <a href="#testimonials" class="hover:text-walnut">후기</a>
+        <a href="#demo" class="hover:text-walnut">데모</a>
+        <a href="#newsletter" class="hover:text-walnut">구독</a>
       </nav>
-      <button id="menu-btn" class="md:hidden focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <!-- Dark mode toggle -->
+      <button id="theme-toggle" class="mr-4 md:mr-0" aria-label="다크 모드 토글">🌙</button>
+      <!-- Mobile menu btn -->
+      <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="메뉴 열기">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
-    <nav id="mobile-menu" class="hidden bg-white dark:bg-gray-800">
+    <!-- Mobile nav -->
+    <nav id="mobile-menu" class="hidden bg-white dark:bg-gray-800" role="navigation">
       <div class="flex flex-col space-y-2 px-4 py-2">
-        <a href="#hero"     class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
+        <a href="#hero" class="py-2 border-b border-gray-200 dark:border-gray-700">Home</a>
         <a href="#features" class="py-2 border-b border-gray-200 dark:border-gray-700">기능</a>
-        <a href="#specs"    class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
-        <a href="#plan"     class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
-        <a href="#faq"      class="py-2">FAQ</a>
+        <a href="#specs" class="py-2 border-b border-gray-200 dark:border-gray-700">스펙</a>
+        <a href="#plan" class="py-2 border-b border-gray-200 dark:border-gray-700">제품</a>
+        <a href="#testimonials" class="py-2 border-b border-gray-200 dark:border-gray-700">후기</a>
+        <a href="#demo" class="py-2 border-b border-gray-200 dark:border-gray-700">데모</a>
+        <a href="#newsletter" class="py-2">구독</a>
       </div>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]" data-aos="fade-up">
+  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]" data-aos="fade-up" role="banner">
     <div class="text-center px-4">
-      <img src="assets/images/hero-3d.png" alt="올인원 스테이션" class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl"/>
-      <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4">
+      <img src="assets/images/hero-3d.png"
+           srcset="assets/images/hero-3d@2x.png 2x"
+           loading="lazy"
+           alt="올인원 스테이션"
+           class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl"/>
+      <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4" itemprop="headline">
         작지만 단단한<br>나만의 홈카페 스테이션
       </h1>
       <a href="https://www.wadiz.kr/web/campaign/detail/00000"
-         class="inline-block mt-2 px-6 py-3 bg-walnut text-cream font-body rounded-full shadow hover:shadow-md transition">
+         class="inline-block mt-2 px-6 py-3 bg-walnut text-cream rounded-full shadow hover:shadow-md transition"
+         role="button">
         펀딩 바로가기
       </a>
+      <!-- Social share -->
+      <div class="mt-4 flex justify-center space-x-4">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=PAGE_URL" target="_blank" aria-label="페이스북 공유">📘</a>
+        <a href="https://twitter.com/intent/tweet?url=PAGE_URL" target="_blank" aria-label="트위터 공유">🐦</a>
+        <a href="javascript:void(0)" onclick="window.Kakao.Share.link({container: '#kakao-link-btn'});" aria-label="카카오톡 공유">💬</a>
+      </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-<section id="features" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
-  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
-    <div>
-      <img src="assets/images/dosing.png"
-           alt="도징 부분 이미지"
-           class="mx-auto mb-4 w-16 h-16 object-contain"/>
-      <h3 class="font-heading text-xl mb-2">도징</h3>
-      <p class="text-gray-600 dark:text-gray-400">정확한 커피 도징 구조</p>
+  <section id="features" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center px-4">
+      <!-- 도징 -->
+      <div role="region" aria-labelledby="feat-dosing">
+        <img src="assets/images/dosing.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
+        <h3 id="feat-dosing" class="font-heading text-xl mb-2">도징</h3>
+        <p>정확한 커피 도징 구조</p>
+      </div>
+      <!-- 거치 -->
+      <div role="region" aria-labelledby="feat-hold">
+        <img src="assets/images/hold.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
+        <h3 id="feat-hold" class="font-heading text-xl mb-2">거치</h3>
+        <p>안정적인 포터필터 거치대</p>
+      </div>
+      <!-- 정리 -->
+      <div role="region" aria-labelledby="feat-organize">
+        <img src="assets/images/organize.png" loading="lazy" alt="" class="mx-auto mb-4 w-16 h-16 object-contain"/>
+        <h3 id="feat-organize" class="font-heading text-xl mb-2">정리</h3>
+        <p>흩어진 바 공간 정돈</p>
+      </div>
     </div>
-    <div>
-      <img src="assets/images/hold.png"
-           alt="거치 부분 이미지"
-           class="mx-auto mb-4 w-16 h-16 object-contain"/>
-      <h3 class="font-heading text-xl mb-2">거치</h3>
-      <p class="text-gray-600 dark:text-gray-400">안정적인 포터필터 거치대</p>
-    </div>
-    <div>
-      <img src="assets/images/organize.png"
-           alt="정리 부분 이미지"
-           class="mx-auto mb-4 w-16 h-16 object-contain"/>
-      <h3 class="font-heading text-xl mb-2">정리</h3>
-      <p class="text-gray-600 dark:text-gray-400">흩어진 바 공간 정돈</p>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- SPECS -->
-  <section id="specs" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+  <section id="specs" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up" role="region" aria-labelledby="specs-title">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6">스펙 & 소재</h2>
-      <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+      <h2 id="specs-title" class="font-heading text-2xl sm:text-3xl text-walnut mb-6">스펙 & 소재</h2>
+      <ul class="space-y-2">
         <li>크기: W350 × D200 × H120 mm</li>
         <li>무게: 850g</li>
         <li>소재: 호두나무 원목 (국내산)</li>
-        <li>제작 및 배송: 국내 주문제작 · 펀딩 종료 후 약 2주</li>
+        <li>제작 및 배송: 국내 주문제작 · 팬딩 종료 후 약 2주</li>
       </ul>
     </div>
   </section>
 
-  <!-- PLAN -->
-  <section id="plan" class="py-16 bg-cream" data-aos="fade-up">
+  <!-- PRODUCTS -->
+  <section id="plan" class="py-16 bg-cream" data-aos="fade-up" role="region" aria-labelledby="plan-title">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-6">제품 소개 & 가격</h2>
+      <h2 id="plan-title" class="font-heading text-2xl sm:text-3xl text-walnut mb-6">제품 소개 & 가격</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/images/product-redoak.png" alt="레드오크 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <img src="assets/images/product-redoak.png" loading="lazy" alt="레드오크 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
           <h3 class="font-heading text-lg sm:text-xl mb-1">레드오크 에디션</h3>
-          <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">10명 한정</p>
+          <p class="mb-2">10명 한정</p>
           <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩439,000</p>
           <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
         <div class="bg-white p-4 sm:p-6 rounded-2xl shadow hover:shadow-lg transition text-center">
-          <img src="assets/images/product-walnut.png" alt="호두나무 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
+          <img src="assets/images/product-walnut.png" loading="lazy" alt="호두나무 에디션" class="mx-auto mb-4 w-32 h-32 object-cover rounded"/>
           <h3 class="font-heading text-lg sm:text-xl mb-1">호두나무 에디션</h3>
-          <p class="text-gray-700 dark:text-gray-400 text-sm sm:text-base mb-2">10명 한정</p>
+          <p class="mb-2">20명 한정</p>
           <p class="font-heading text-2xl sm:text-3xl text-walnut mb-2">₩519,000</p>
           <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full text-sm sm:text-base">선택하기</a>
         </div>
       </div>
     </div>
   </section>
-  
 
-  <!-- FAQ -->
-  <section id="faq" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
-    <div class="max-w-2xl mx-auto px-4 space-y-4">
-      <h2 class="font-heading text-2xl sm:text-3xl text-walnut mb-8 text-center">FAQ</h2>
-      <div>
-        <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-  
-expanded="false">
-          배송 기간 <span>+</span>
-        </button>
-        <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
-          펀딩 종료 후 약 2주 이내에 제품을 발송해 드립니다. 다만, 주문량 증가나 제작 상황에 따라 배송이 다소 지연될 수 있으니 여유 있게 기다려 주시기 바랍니다.
-        </div>
-      </div>
-      <div>
-        <button class="w-full text-left flex justify-between items-center font-body py-2 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg focus:outline-none" aria-  
-expanded="false">
-          AS 정책 <span>+</span>
-        </button>
-        <div class="mt-2 hidden text-gray-600 dark:text-gray-300 px-4">
-          제품은 100% 목재 수제로 제작되며, 나무 고유의 색상과 결이 조금씩 다르고 표면에 단차가 있을 수 있습니다. 이로 인한 휨·뒤틀림 등은 불량으로 간주되지 않아 반품 및 환불이 어려운 점 양해 부탁드립니다.
-        </div>
-      </div>
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="py-16 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <h2 class="font-heading text-3xl text-center mb-8">사용자 후기</h2>
+    <div class="slider max-w-2xl mx-auto">
+      <div class="px-4"><p class="italic">“디자인도 좋고, 사용감이 탁월해요!”</p><p class="mt-2">– 김민수</p></div>
+      <div class="px-4"><p class="italic">“매일 커피 타는 시간이 즐거워졌습니다.”</p><p class="mt-2">– 이영희</p></div>
+      <!-- 추가 슬라이드 -->
     </div>
+  </section>
+
+  <!-- DEMO VIDEO -->
+  <section id="demo" class="relative h-[60vh] overflow-hidden" data-aos="fade-up">
+    <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop src="assets/video/demo.mp4"></video>
+    <div class="relative z-10 flex items-center justify-center h-full bg-black bg-opacity-40">
+      <h2 class="font-heading text-4xl text-white">제품 사용법 데모</h2>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter" class="py-16 bg-cream" data-aos="fade-up">
+    <h2 class="font-heading text-2xl text-center mb-4">펀딩 소식 알림 신청</h2>
+    <form action="https://formspree.io/f/yourFormId" method="POST" class="max-w-md mx-auto flex flex-col space-y-4">
+      <input type="email" name="email" placeholder="이메일 주소" required class="p-3 rounded border"/>
+      <button type="submit" class="bg-walnut text-cream py-2 rounded">구독하기</button>
+    </form>
   </section>
 
   <!-- FOOTER -->
@@ -171,26 +191,45 @@ expanded="false">
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
   <script>
+    // AOS
     AOS.init({ once: true });
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', ()=>{
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Dark mode toggle
+    const toggle = document.getElementById('theme-toggle');
+    if(localStorage.theme==='dark') document.documentElement.classList.add('dark'), toggle.textContent='☀️';
+    toggle.addEventListener('click', ()=>{
+      const isDark = document.documentElement.classList.toggle('dark');
+      toggle.textContent = isDark?'☀️':'🌙';
+      localStorage.theme = isDark?'dark':'light';
     });
 
     // FAQ accordion
-    document.querySelectorAll('#faq button').forEach(btn => {
-      btn.addEventListener('click', () => {
+    document.querySelectorAll('#faq button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
         const panel = btn.nextElementSibling;
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
+        const open = btn.getAttribute('aria-expanded')==='true';
+        btn.setAttribute('aria-expanded',String(!open));
         panel.classList.toggle('hidden');
-        btn.querySelector('span').textContent = open ? '+' : '-';
+        btn.querySelector('span').textContent = open?'+':'-';
       });
     });
+
+    // Slick slider
+    document.addEventListener('DOMContentLoaded',()=>{
+      $('.slider').slick({ dots:true, arrows:false, autoplay:true });
+    });
+
+    // Register service worker
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/sw.js');
+    }
   </script>
 </body>
 </html>
