@@ -4,25 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Studio Pour</title>
-  <!-- Tailwind CDN (간단 배포용) -->
+
+  <!-- 1) Tailwind CDN 불러오기 -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 2) 커스텀 설정 (컬러·폰트) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            walnut: "#6B4F3B",
+            cream : "#F5F1EA",
+            leaf  : "#A3B18A",
+          },
+          fontFamily: {
+            heading: ["'Noto Sans KR'", "sans-serif"],
+            body   : ["'Noto Sans KR'", "sans-serif"],
+          },
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-cream-50">
-  <!-- 여기에 슬라이더 코드 삽입 -->
-  <div class="relative w-full overflow-hidden">
-    <!-- Before 이미지 -->
-    <img src="assets/before.jpg" class="absolute inset-0 w-full h-auto object-cover" />
-    <!-- After 이미지 (마스크) -->
-    <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
-      <img src="assets/after.jpg" class="w-full h-auto object-cover" />
+<body class="bg-cream font-body text-gray-800">
+
+  <!-- HEADER -->
+  <header class="fixed w-full bg-white bg-opacity-70 backdrop-blur z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
+      <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
+      <nav class="space-x-6">
+        <a href="#hero" class="hover:text-walnut">Home</a>
+        <a href="#features" class="hover:text-walnut">기능</a>
+        <a href="#specs"    class="hover:text-walnut">스펙</a>
+        <a href="#plan"     class="hover:text-walnut">펀딩</a>
+        <a href="#faq"      class="hover:text-walnut">FAQ</a>
+      </nav>
     </div>
-    <!-- 드래그 핸들 -->
-    <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                                 w-10 h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
-      <span class="text-xl">‹›</span>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]">
+    <div class="text-center px-4">
+      <img src="assets/hero-3d.png" alt="올인원 스테이션"
+           class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl">
+      <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4">
+        작지만 단단한<br>나만의 홈카페 스테이션
+      </h1>
+      <a href="https://www.wadiz.kr/web/campaign/detail/00000"
+         class="inline-block mt-2 px-6 py-3 bg-walnut text-cream rounded-full shadow hover:shadow-md transition">
+        펀딩 바로가기
+      </a>
     </div>
-    <!-- 레이블 & 버튼 등… -->
-  </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+      <div>
+        <img src="assets/icon-dosing.svg" class="mx-auto mb-4 w-16" alt="도징">
+        <h3 class="font-heading text-xl mb-2">도징</h3>
+        <p class="text-gray-600">정확한 커피 도징 구조</p>
+      </div>
+      <div>
+        <img src="assets/icon-scale.svg" class="mx-auto mb-4 w-16" alt="저울">
+        <h3 class="font-heading text-xl mb-2">저울</h3>
+        <p class="text-gray-600">내장형 디지털 저울</p>
+      </div>
+      <div>
+        <img src="assets/icon-hold.svg" class="mx-auto mb-4 w-16" alt="거치">
+        <h3 class="font-heading text-xl mb-2">거치</h3>
+        <p class="text-gray-600">안정적인 포터필터 거치대</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (여기에 슬라이더 / SPECS / PLAN / FAQ / FOOTER 순으로 추가) -->
+
+  <!-- 슬라이더 예시 삽입 위치 -->
+  <!--
+  <section id="detail" class="py-16 bg-cream">
+    … 앞서 만든 슬라이더 HTML + JS 로직 …
+  </section>
+  -->
 
   <script src="js/slider.js"></script>
 </body>
