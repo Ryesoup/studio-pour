@@ -2,26 +2,23 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Studio Pour</title>
-
-  <!-- 1) Tailwind CDN 불러오기 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Pour - 홈카페 올인원 스테이션</title>
+  <!-- Tailwind CDN & Custom Config -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- 2) 커스텀 설정 (컬러·폰트) -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            walnut: "#6B4F3B",
-            cream : "#F5F1EA",
-            leaf  : "#A3B18A",
+            walnut: '#6B4F3B',
+            cream:  '#F5F1EA',
+            leaf:   '#A3B18A',
           },
           fontFamily: {
-            heading: ["'Noto Sans KR'", "sans-serif"],
-            body   : ["'Noto Sans KR'", "sans-serif"],
-          },
+            heading: ['\u2018Noto Sans KR\u2019', 'sans-serif'],
+            body:    ['\u2018Noto Sans KR\u2019', 'sans-serif'],
+          }
         }
       }
     }
@@ -29,28 +26,27 @@
 </head>
 <body class="bg-cream font-body text-gray-800">
 
-<!-- HEADER -->
-<header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50">
-  <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-    <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
-    <nav class="space-x-6 text-gray-700 font-body">
-      <a href="#hero"    class="hover:text-walnut">Home</a>
-      <a href="#features" class="hover:text-walnut">기능</a>
-      <a href="#specs"     class="hover:text-walnut">스펙</a>
-      <a href="#plan"      class="hover:text-walnut">펀딩</a>
-      <a href="#faq"       class="hover:text-walnut">FAQ</a>
-    </nav>
-  </div>
-</header>
-
+  <!-- HEADER -->
+  <header class="fixed top-0 w-full bg-white bg-opacity-70 backdrop-blur z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
+      <a href="#" class="text-walnut font-heading text-2xl">Studio Pour</a>
+      <nav class="space-x-6 text-gray-700 font-body">
+        <a href="#hero" class="hover:text-walnut">Home</a>
+        <a href="#features" class="hover:text-walnut">기능</a>
+        <a href="#specs" class="hover:text-walnut">스펙</a>
+        <a href="#plan" class="hover:text-walnut">펀딩</a>
+        <a href="#faq" class="hover:text-walnut">FAQ</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section id="hero" class="pt-24 bg-cream flex items-center justify-center min-h-[80vh]">
     <div class="text-center px-4">
-      <img src="assets/hero-3d.png" alt="올인원 스테이션"
-           class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl">
+      <img src="assets/hero-3d.png" alt="올인원 스테이션" class="mx-auto mb-8 w-full max-w-md shadow-lg rounded-2xl" />
       <h1 class="font-heading text-4xl md:text-5xl text-walnut mb-4">
-        작지만 단단한<br>나만의 홈카페 스테이션
+        작지만 단단한<br />
+        나만의 홈카페 스테이션
       </h1>
       <a href="https://www.wadiz.kr/web/campaign/detail/00000"
          class="inline-block mt-2 px-6 py-3 bg-walnut text-cream rounded-full shadow hover:shadow-md transition">
@@ -63,32 +59,121 @@
   <section id="features" class="py-16 bg-white">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
       <div>
-        <img src="assets/icon-dosing.svg" class="mx-auto mb-4 w-16" alt="도징">
+        <img src="assets/icon-dosing.svg" class="mx-auto mb-4 w-16" alt="도징" />
         <h3 class="font-heading text-xl mb-2">도징</h3>
         <p class="text-gray-600">정확한 커피 도징 구조</p>
       </div>
       <div>
-        <img src="assets/icon-scale.svg" class="mx-auto mb-4 w-16" alt="저울">
+        <img src="assets/icon-scale.svg" class="mx-auto mb-4 w-16" alt="저울" />
         <h3 class="font-heading text-xl mb-2">저울</h3>
         <p class="text-gray-600">내장형 디지털 저울</p>
       </div>
       <div>
-        <img src="assets/icon-hold.svg" class="mx-auto mb-4 w-16" alt="거치">
+        <img src="assets/icon-hold.svg" class="mx-auto mb-4 w-16" alt="거치" />
         <h3 class="font-heading text-xl mb-2">거치</h3>
         <p class="text-gray-600">안정적인 포터필터 거치대</p>
       </div>
     </div>
   </section>
 
-  <!-- (여기에 슬라이더 / SPECS / PLAN / FAQ / FOOTER 순으로 추가) -->
-
-  <!-- 슬라이더 예시 삽입 위치 -->
-  <!--
+  <!-- DETAIL SLIDER -->
   <section id="detail" class="py-16 bg-cream">
-    … 앞서 만든 슬라이더 HTML + JS 로직 …
+    <div class="max-w-3xl mx-auto relative w-full overflow-hidden">
+      <!-- Before Image -->
+      <img src="assets/before.jpg" class="absolute inset-0 w-full h-auto object-cover" alt="Before 정돈 전" />
+      <!-- After Mask -->
+      <div id="slider-mask" class="absolute inset-0 w-1/2 overflow-hidden">
+        <img src="assets/after.jpg" class="w-full h-auto object-cover" alt="After 정돈 후" />
+      </div>
+      <!-- Handle -->
+      <div id="slider-handle" class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg cursor-grab flex items-center justify-center">
+        <span class="text-xl">&#x2039;&#x203A;</span>
+      </div>
+      <!-- Labels -->
+      <span class="absolute left-4 top-4 bg-black bg-opacity-60 px-2 py-1 text-white text-sm">Before</span>
+      <span class="absolute right-4 top-4 bg-black bg-opacity-60 px-2 py-1 text-white text-sm">After</span>
+      <!-- Nav Buttons -->
+      <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow">&#x2039;</button>
+      <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow">&#x203A;</button>
+    </div>
   </section>
-  -->
 
+  <!-- SPECS -->
+  <section id="specs" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-2xl text-walnut mb-4">스펙 & 소재</h2>
+      <ul class="space-y-2 font-body text-gray-700">
+        <li>• 크기: W 350 × D 200 × H 30 mm</li>
+        <li>• 무게: 450g</li>
+        <li>• 소재: 호두나무 톤(MDF + 호두나무 베니어)</li>
+        <li>• 제작: 국내 OEM / 배송: 펀딩 완료 후 약 2주 소요</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FUNDING PLAN -->
+  <section id="plan" class="py-16 bg-cream">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-2xl text-walnut mb-6">펀딩 플랜</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Early Bird -->
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-heading text-xl mb-2">얼리버드</h3>
+          <p class="font-body text-gray-700 mb-4">30% 할인 / 50명 한정</p>
+          <p class="font-heading text-3xl text-walnut mb-4">₩42,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full">선택하기</a>
+        </div>
+        <!-- Standard -->
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-heading text-xl mb-2">일반 펀딩</h3>
+          <p class="font-body text-gray-700 mb-4">정상가 / 200개</p>
+          <p class="font-heading text-3xl text-walnut mb-4">₩60,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full">선택하기</a>
+        </div>
+        <!-- Set Plan -->
+        <div class="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+          <h3 class="font-heading text-xl mb-2">세트 옵션</h3>
+          <p class="font-body text-gray-700 mb-4">2개 세트 / 한정 수량</p>
+          <p class="font-heading text-3xl text-walnut mb-4">₩110,000</p>
+          <a href="#" class="inline-block px-4 py-2 bg-walnut text-cream rounded-full">선택하기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="font-heading text-2xl text-walnut mb-6">자주 묻는 질문</h2>
+      <div class="space-y-4 font-body text-gray-700">
+        <details class="p-4 border rounded-lg">
+          <summary class="cursor-pointer">배송 기간은 얼마나 걸리나요?</summary>
+          <p class="mt-2">펀딩 종료 후 제작 및 포장 과정을 거쳐 약 2주 내로 발송됩니다.</p>
+        </details>
+        <details class="p-4 border rounded-lg">
+          <summary class="cursor-pointer">A/S 정책은 어떻게 되나요?</summary>
+          <p class="mt-2">제품 불량 시 수령 후 7일 이내 무상 교환을 지원합니다.</p>
+        </details>
+        <details class="p-4 border rounded-lg">
+          <summary class="cursor-pointer">결제 수단은 어떤 걸 사용할 수 있나요?</summary>
+          <p class="mt-2">신용카드, 실시간 계좌이체, 휴대폰 결제를 모두 지원합니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-100 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center font-body text-gray-600">
+      <p>© 2025 Studio Pour. All rights reserved.</p>
+      <div class="mt-4 space-x-4">
+        <a href="#" class="hover:text-walnut">개인정보처리방침</a>
+        <a href="#" class="hover:text-walnut">이용약관</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slider JS -->
   <script src="js/slider.js"></script>
 </body>
 </html>
