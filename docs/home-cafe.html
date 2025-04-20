@@ -441,7 +441,14 @@ section:not(:first-child):after {
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 
   <script>
-    AOS.init({ once: true });
+    // 기존 AOS 초기화
+  AOS.init({ once: true });
+
+// 모든 리소스 로드가 끝난 뒤 AOS 상태를 다시 스캔
+window.addEventListener('load', () => {
+  AOS.refresh();     // DOM 변경이나 늦게 로드된 요소도 감지
+  AOS.refreshHard(); // 옵저버 자체를 리셋
+});
 
     // Hero 이미지 순환 (부드러운 페이드)
     document.addEventListener('DOMContentLoaded', () => {

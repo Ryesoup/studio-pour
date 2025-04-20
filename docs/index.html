@@ -240,10 +240,14 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ once: true });
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
+    // 기존 AOS 초기화
+  AOS.init({ once: true });
+
+// 모든 리소스 로드가 끝난 뒤 AOS 상태를 다시 스캔
+window.addEventListener('load', () => {
+  AOS.refresh();     // DOM 변경이나 늦게 로드된 요소도 감지
+  AOS.refreshHard(); // 옵저버 자체를 리셋
+});
     const slider = document.getElementById('product-slider');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
