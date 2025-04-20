@@ -1,93 +1,35 @@
-<!-- HEADER -->
-<header class="fixed w-full bg-white shadow-md z-50">
-  <div class="container flex justify-between items-center py-4">
-    <div class="flex items-center">
-      <img src="assets/images/logo-cat.png" alt="Studio Pour Logo" class="w-8 h-8 mr-2">
-      <h1 class="text-2xl font-bold">Studio Pour</h1>
-    </div>
-    <nav class="hidden md:flex space-x-6">
-      <a href="#hero">Home</a>
-      <a href="#about">철학</a>
-      <a href="#vision">비전</a>
-      <a href="#history">연혁</a>
-      <a href="#team">팀</a>
-      <a href="#contact">연락처</a>
-      <a href="#product" class="text-[#CE9E55] font-semibold">제품</a>
-    </nav>
-    <button id="menu-btn" class="md:hidden text-3xl">☰</button>
-  </div>
-  <nav id="mobile-menu" class="hidden bg-white flex flex-col p-4">
-    <a href="#hero" class="py-2">Home</a>
-    <a href="#about" class="py-2">철학</a>
-    <a href="#vision" class="py-2">비전</a>
-    <a href="#history" class="py-2">연혁</a>
-    <a href="#team" class="py-2">팀</a>
-    <a href="#contact" class="py-2">연락처</a>
-    <a href="#product" class="py-2 font-semibold text-[#CE9E55]">제품</a>
-  </nav>
-</header>
-
-<!-- PRODUCT SLIDER SECTION -->
-<section id="product" class="bg-[#ECEDEB] py-16" data-aos="fade-up">
-  <div class="container text-center">
-    <h2 class="text-3xl font-semibold mb-6">제품 보러 가기</h2>
-    <div class="relative overflow-hidden w-full max-w-4xl mx-auto">
-      <div id="product-slider" class="flex transition-transform duration-700 ease-in-out touch-pan-x">
-        <div class="min-w-full px-4">
-          <div class="bg-white shadow-md rounded-lg p-4 sm:p-8">
-            <img src="assets/images/product-homecafe.jpg" alt="홈카페 스테이션" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
-            <h3 class="text-xl font-bold mb-2">홈카페 스테이션</h3>
-            <p class="mb-4">도징, 거치, 저울을 하나로!</p>
-            <a href="home-cafe.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
-          </div>
-        </div>
-        <div class="min-w-full px-4">
-          <div class="bg-white shadow-md rounded-lg p-4 sm:p-8">
-            <img src="assets/images/product-other.jpg" alt="기타 제품" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
-            <h3 class="text-xl font-bold mb-2">기타 제품</h3>
-            <p class="mb-4">Studio Pour의 다양한 아이디어 제품군</p>
-            <a href="other-product.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
-          </div>
-        </div>
-        <div class="min-w-full px-4">
-          <div class="bg-white shadow-md rounded-lg p-4 sm:p-8">
-            <img src="assets/images/product-accessory.jpg" alt="액세서리" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
-            <h3 class="text-xl font-bold mb-2">액세서리</h3>
-            <p class="mb-4">홈카페를 더욱 편리하게</p>
-            <a href="accessory.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
-          </div>
-        </div>
+<section id="product" class="bg-[#ECEDEB] py-20" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-3xl font-semibold mb-12 text-center">제품 보러 가기</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- 카드 1 -->
+      <div class="relative bg-white/30 backdrop-blur border border-white/20 shadow-lg hover:shadow-2xl rounded-2xl p-6 transform transition-all duration-300 hover:-translate-y-2" data-aos="fade-up">
+        <div class="absolute top-4 left-4 bg-[#CE9E55] text-white text-xs font-semibold px-3 py-1 rounded-full">BEST</div>
+        <img src="assets/images/product-homecafe.jpg" alt="홈카페 스테이션" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
+        <h3 class="text-xl font-bold mb-2">홈카페 스테이션</h3>
+        <p class="mb-4">도징, 거치, 저울을 하나로!</p>
+        <a href="home-cafe.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
       </div>
-      <!-- Navigation arrows -->
-      <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">&#10094;</button>
-      <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-md">&#10095;</button>
+
+      <!-- 카드 2 -->
+      <div class="relative bg-white/30 backdrop-blur border border-white/20 shadow-lg hover:shadow-2xl rounded-2xl p-6 transform transition-all duration-300 hover:-translate-y-2" data-aos="zoom-in">
+        <div class="absolute top-4 left-4 bg-[#6E7468] text-white text-xs font-semibold px-3 py-1 rounded-full">NEW</div>
+        <img src="assets/images/product-other.jpg" alt="기타 제품" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
+        <h3 class="text-xl font-bold mb-2">기타 제품</h3>
+        <p class="mb-4">Studio Pour의 다양한 아이디어 제품군</p>
+        <a href="other-product.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
+      </div>
+
+      <!-- 카드 3 -->
+      <div class="relative bg-white/30 backdrop-blur border border-white/20 shadow-lg hover:shadow-2xl rounded-2xl p-6 transform transition-all duration-300 hover:-translate-y-2" data-aos="fade-left">
+        <div class="absolute top-4 left-4 bg-[#B58D4B] text-white text-xs font-semibold px-3 py-1 rounded-full">추천</div>
+        <img src="assets/images/product-accessory.jpg" alt="액세서리" class="w-full aspect-[4/3] object-contain bg-[#f5f5f5] rounded mb-4">
+        <h3 class="text-xl font-bold mb-2">액세서리</h3>
+        <p class="mb-4">홈카페를 더욱 편리하게</p>
+        <a href="accessory.html" class="inline-block px-4 py-2 bg-[#CE9E55] text-white rounded hover:bg-[#b38e48]">자세히 보기</a>
+      </div>
+
     </div>
   </div>
 </section>
-
-<script>
-  const slider = document.getElementById('product-slider');
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let index = 0;
-  const totalSlides = slider.children.length;
-
-  function showSlide(i) {
-    slider.style.transform = `translateX(-${i * 100}%)`;
-  }
-
-  setInterval(() => {
-    index = (index + 1) % totalSlides;
-    showSlide(index);
-  }, 3000);
-
-  nextBtn.addEventListener('click', () => {
-    index = (index + 1) % totalSlides;
-    showSlide(index);
-  });
-
-  prevBtn.addEventListener('click', () => {
-    index = (index - 1 + totalSlides) % totalSlides;
-    showSlide(index);
-  });
-</script>
