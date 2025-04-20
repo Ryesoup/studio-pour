@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Pour</title>
   <meta name="description" content="작지만 견고한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대">
+  <meta name="keywords" content="홈카페, 도징 스테이션, 포터필터 거치대, Studio Pour, 홈카페 액세서리,올인원 홈카페 스테이션, 홈카페 스테이션, 도징 스테이션, 도징">
 <link rel="canonical" href="https://yourdomain.com/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   <meta name="robots" content="index, follow">
@@ -30,6 +31,14 @@
   <link rel="icon" href="assets/images/favicon.ico">
   <link rel="manifest" href="/manifest.json">
 
+  <!-- Preconnect & DNS Prefetch -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" href="assets/images/hero-3d.png">
+  <link rel="preload" as="font" href="/assets/fonts/YourFont.woff2" type="font/woff2" crossorigin>
   <!-- Tailwind CSS & Plugins -->
   <script defer src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -423,6 +432,7 @@ section:not(:first-child):after {
 
     // Hero 이미지 순환 (부드러운 페이드)
     document.addEventListener('DOMContentLoaded', () => {
+      
       const heroImages = [
         'assets/images/hero-3d.png',
         'assets/images/hero-3d-alt1.png',
@@ -468,16 +478,16 @@ section:not(:first-child):after {
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 // Mobile menu toggle
 document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
-      // Countdown
+      
+// 2) Countdown
       const countdownEl = document.getElementById('countdown');
       const endDate = new Date('2025-06-30T23:59:59');
       setInterval(() => {
-        const diff = endDate - new Date(),
-              d = Math.floor(diff/86400000),
-              h = Math.floor((diff%86400000)/3600000),
-              m = Math.floor((diff%3600000)/60000),
-              s = Math.floor((diff%60000)/1000);
-        countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 ${m}분 ${s}초 남음`;
+        const diff = endDate - new Date();
+        if(diff < 0) return;
+        const d = Math.floor(diff/86400000);
+        const h = Math.floor((diff%86400000)/3600000);
+        countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 남음`;
       }, 1000);
 
       // Progress bar
