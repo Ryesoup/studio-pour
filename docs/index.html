@@ -5,7 +5,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}  
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXX');
   </script>
@@ -25,10 +25,21 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- Tailwind CSS & Plugins -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+
+  <!-- 전역 스타일 -->
   <style>
+    /* Back to Top */
+    #backToTop {display:none; position:fixed; bottom:2rem; right:2rem; background:#CE9E55; color:#F5F1EA; padding:0.5rem; border-radius:9999px; cursor:pointer; z-index:50;}
+    /* Lightbox */
+    #lightbox {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:60;}
+    #lightbox img {max-width:90%; max-height:90%;}
+    /* Slick dots */
+    .slick-dots li button::before {color:#CE9E55; font-size:12px;}
+    .slick-dots li.slick-active button::before {color:#6E7468;}
     /* Back to Top button */
     #backToTop { display: none; position: fixed; bottom: 2rem; right: 2rem; background: #CE9E55; color: #F5F1EA; padding: 0.5rem; border-radius: 9999px; cursor: pointer; }
     /* Lightbox overlay */
@@ -47,85 +58,93 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     /* Touch optimization */
     .lightbox-target, button, a { touch-action: manipulation; }
+
+    /* Hero 이미지 페이드 전환 스타일 */
+    #heroImage1, #heroImage2 {
+      transition: opacity 0.7s ease-in-out;
+    }
+    .opacity-0 { opacity: 0 !important; }
+    .opacity-100 { opacity: 1 !important; }
   </style>
 </head>
-<body class="bg-[#F5F1EA] text-[#6E7468] font-body">
 
+<body class="bg-[#F5F1EA] text-[#6E7468] font-body">
   <!-- Back to Top -->
   <button id="backToTop" aria-label="맨 위로">↑</button>
 
   <!-- HEADER -->
-  <header class="sticky top-0 w-full bg-white bg-opacity-90 backdrop-blur z-50 py-2 sm:py-4">
+  <header class="sticky top-0 w-full bg-white bg-opacity-90 backdrop-blur z-50 py-4">
     <div class="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6">
-      <a href="#hero" class="flex items-center space-x-2">
-        <img src="assets/images/logo-cat.png" alt="Studio Pour 로고" class="h-8 w-8">
-        <span class="font-heading text-lg sm:text-xl hover:text-[#CE9E55] transition">Studio Pour</span>
+      <a href="#hero" class="flex items-center space-x-3">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/studiopour.svg" alt="Studio Pour 로고" class="h-10 w-10">
+        <span class="font-heading text-2xl text-[#6E7468] hover:text-[#CE9E55] transition">Studio Pour</span>
       </a>
-      <nav class="hidden md:flex space-x-6 text-gray-700">
+      <nav class="hidden md:flex space-x-8 text-[#6E7468] font-medium">
         <a href="#hero" class="hover:text-[#CE9E55]">Home</a>
+        <a href="#funding" class="hover:text-[#CE9E55]">펀딩</a>
         <a href="#features" class="hover:text-[#CE9E55]">기능</a>
         <a href="#specs" class="hover:text-[#CE9E55]">스펙</a>
         <a href="#plan" class="hover:text-[#CE9E55]">제품</a>
-        <a href="#funding" class="hover:text-[#CE9E55]">펀딩</a>
-        <a href="#reviews" class="hover:text-[#CE9E55]">후기</a>
         <a href="#faq" class="hover:text-[#CE9E55]">FAQ</a>
       </nav>
-      <button id="menu-btn" class="md:hidden focus:outline-none text-2xl">☰</button>
+      <button id="menu-btn" class="md:hidden text-3xl text-[#6E7468] focus:outline-none">☰</button>
     </div>
     <nav id="mobile-menu" class="hidden bg-white">
-      <div class="flex flex-col px-4 py-2 space-y-2">
-        <a href="#hero" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">Home</a>
-        <a href="#features" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">기능</a>
-        <a href="#specs" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">스펙</a>
-        <a href="#plan" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">제품</a>
-        <a href="#funding" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">펀딩</a>
-        <a href="#reviews" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">후기</a>
-        <a href="#faq" class="py-2 hover:text-[#CE9E55]">FAQ</a>
+      <div class="flex flex-col px-4 py-4 space-y-3 font-medium text-[#6E7468]">
+        <a href="#hero" class="hover:text-[#CE9E55]">Home</a>
+        <a href="#funding" class="hover:text-[#CE9E55]">펀딩</a>
+        <a href="#features" class="hover:text-[#CE9E55]">기능</a>
+        <a href="#specs" class="hover:text-[#CE9E55]">스펙</a>
+        <a href="#plan" class="hover:text-[#CE9E55]">제품</a>
+        <a href="#faq" class="hover:text-[#CE9E55]">FAQ</a>
       </div>
     </nav>
   </header>
 
   <main class="pt-20">
-
     <!-- HERO -->
-<section id="hero" class="py-16 bg-[#6E7468]/80" data-aos="fade-up">
-  <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
-    <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">
-      도징, 거치, 정리를 하나로<br>홈카페를 정돈하는 올인원 스테이션
-    </h1>
-    
-    <!-- 이미지 슬라이드 영역 -->
-    <div class="relative mx-auto mb-8 w-full max-w-md rounded-2xl shadow-lg overflow-hidden h-auto aspect-[4/5]">
-      <img id="heroImage1" src="assets/images/hero-3d.png"
-           alt="올인원 스테이션1"
-           class="absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-1000 z-10">
-      <img id="heroImage2" src="assets/images/hero-3d-alt1.png"
-           alt="올인원 스테이션2"
-           class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-1000 z-0">
-    </div>
-
-    <!-- CTA 버튼 -->
-    <a href="#plan" id="track-plan"
-       class="inline-block mt-4 px-8 py-4 sm:px-10 sm:py-5 bg-[#CE9E55] text-[#F5F1EA] rounded-lg hover:bg-[#b38e48] transition focus:outline-none focus:ring-2 focus:ring-[#F5F1EA]"
-       data-aos="fade-up" data-aos-delay="200">
-       제품 살펴보기
-    </a>
-  </div>
-</section>
-
-
-
+    <section id="hero" class="py-16 bg-[#6E7468]/80" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
+        <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">
+          도징, 거치, 정리를 하나로<br>홈카페를 정돈하는 올인원 스테이션
+        </h1>
+        <div class="relative mx-auto mb-8 w-full max-w-md rounded-2xl shadow-lg overflow-hidden aspect-[4/5]">
+          <img id="heroImage1"
+               src="assets/images/hero-3d.png"
+               alt="올인원 스테이션"
+               class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 z-20"
+               loading="lazy">
+          <img id="heroImage2"
+               src="assets/images/hero-3d-alt1.png"
+               alt="올인원 스테이션 대체 이미지"
+               class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 z-10"
+               loading="lazy">
+        </div>
+        <a href="#plan"
+           id="track-plan"
+           class="inline-block mt-4 px-8 py-4 sm:px-10 sm:py-5 bg-[#CE9E55] text-[#F5F1EA] rounded-lg hover:bg-[#b38e48] transition focus:outline-none focus:ring-2 focus:ring-[#F5F1EA]"
+           data-aos="fade-up" data-aos-delay="200">
+          제품 살펴보기
+        </a>
+      </div>
+    </section>
 
     <!-- FUNDING SECTION -->
     <section id="funding" class="py-16 bg-[#ECEDEB] text-center" data-aos="fade-up">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-4">와디즈에서 펀딩하세요</h2>
-        <p id="stats" class="text-gray-700 mb-2">참여자: <span id="participantCount">--</span>명 • 남은 재고: <span id="stockCount">--</span>개</p>
+        <p id="stats" class="text-gray-700 mb-2">
+          참여자: <span id="participantCount">150</span>명 • 남은 재고: <span id="stockCount">20</span>개
+        </p>
         <div class="progress-container mb-4">
-          <div id="progress-bar" class="progress-bar"></div>
+          <div id="progress-bar" class="progress-bar" style="width:75%"></div>
         </div>
         <p id="countdown" class="text-base sm:text-lg text-gray-700 mb-6"></p>
-        <a href="https://www.wadiz.kr/web/campaign/detail/00000" id="track-funding" class="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">펀딩 바로가기</a>
+        <a href="https://www.wadiz.kr/web/campaign/detail/00000"
+           id="track-funding"
+           class="inline-block px-6 py-2 sm:px-8 sm:py-3 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">
+          펀딩 바로가기
+        </a>
       </div>
     </section>
 
@@ -133,21 +152,30 @@
     <section id="features" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
       <div class="max-w-5xl mx-auto text-center px-4 sm:px-6">
         <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-12">주요 기능</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 px-2 sm:px-0">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">
           <div data-aos="zoom-in" data-aos-delay="100">
-            <img loading="lazy" src="assets/images/dosing.png" alt="정밀 도징" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <img loading="lazy" src="assets/images/dosing.png" alt="정밀 도징"
+                 class="mx-auto mb-4 w-20 h-20 cursor-pointer lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">도징 스테이션</h3>
-            <p class="text-sm sm:text-base">분리형 도징 스테이션을 일체형으로 통합하여 언제나 정확하고 일관된 도징을 경험할 수 있습니다.</p>
+            <p class="text-sm sm:text-base">
+              분리형 도징 스테이션을 일체형으로 통합해 언제나 정확한 도징을 경험하세요.
+            </p>
           </div>
           <div data-aos="zoom-in" data-aos-delay="200">
-            <img loading="lazy" src="assets/images/hold.png" alt="세련된 디자인" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <img loading="lazy" src="assets/images/hold.png" alt="세련된 디자인"
+                 class="mx-auto mb-4 w-20 h-20 cursor-pointer lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">세련된 디자인</h3>
-            <p class="text-sm sm:text-base">목재 목심 구조로 고급스러운 디자인을 완성했으며, 컴팩트한 크기로 공간 활용도를 극대화합니다.</p>
+            <p class="text-sm sm:text-base">
+              목재 목심 구조로 고급스러움을, 컴팩트한 크기로 공간 활용도를 극대화합니다.
+            </p>
           </div>
           <div data-aos="zoom-in" data-aos-delay="300">
-            <img loading="lazy" src="assets/images/organize.png" alt="깔끔한 정리" class="mx-auto mb-4 w-20 h-20 aspect-square cursor-pointer lightbox-target">
+            <img loading="lazy" src="assets/images/organize.png" alt="깔끔한 정리"
+                 class="mx-auto mb-4 w-20 h-20 cursor-pointer lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">깔끔한 정리</h3>
-            <p class="text-sm sm:text-base">포터필터, 탬퍼, 저울 등 바 도구를 한곳에 정리해 효율적인 작업 공간을 제공합니다.</p>
+            <p class="text-sm sm:text-base">
+              포터필터, 탬퍼, 저울 등 바 도구를 한곳에 정리해 효율적인 바 공간을 제공합니다.
+            </p>
           </div>
         </div>
       </div>
@@ -172,35 +200,82 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="flex flex-col items-center text-center p-4">
             <button data-id="redoak" class="mb-2 text-xl">☆</button>
-            <img loading="lazy" src="assets/images/product-redoak.png" alt="레드오크 에디션" class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
+            <img loading="lazy" src="assets/images/product-redoak.png" alt="레드오크 에디션"
+                 class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">레드오크 에디션</h3>
             <p class="text-2xl text-[#CE9E55] mb-4">₩439,000</p>
-            <a href="#" class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">선택하기</a>
+            <a href="#"
+               class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">
+              선택하기
+            </a>
           </div>
           <div class="flex flex-col items-center text-center p-4">
             <button data-id="walnut" class="mb-2 text-xl">☆</button>
-            <img loading="lazy" src="assets/images/product-walnut.png" alt="호두나무 에디션" class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
+            <img loading="lazy" src="assets/images/product-walnut.png" alt="호두나무 에디션"
+                 class="mb-4 w-48 h-48 object-cover rounded aspect-square lightbox-target">
             <h3 class="font-heading text-lg sm:text-xl text-[#6E7468] mb-2">호두나무 에디션</h3>
             <p class="text-2xl text-[#CE9E55] mb-4">₩519,000</p>
-            <a href="#" class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">선택하기</a>
+            <a href="#"
+               class="inline-block px-4 py-2 bg-[#CE9E55] text-[#F5F1EA] rounded-full hover:bg-[#b38e48] transition">
+              선택하기
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Q&A Section -->
+    <!-- 실사용 프리뷰 -->
+    <section id="preview-real" class="py-16 bg-white" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-6">실사용 모습</h2>
+        <img src="assets/images/real-use.jpg" alt="실사용 모습"
+             class="mx-auto rounded-2xl shadow-lg w-full max-w-md">
+      </div>
+    </section>
+
+    
+
+    <!-- 구분선 추가 -->
+    <div class="border-t my-16"></div>
+
+    <!-- 자동 슬라이더 프리뷰 -->
+    <section id="preview-slider" class="py-16 bg-white" data-aos="fade-up">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-6">제품 프리뷰</h2>
+        <div class="preview-slider">
+          <div><img src="assets/images/preview1.jpg" alt="프리뷰1" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview2.jpg" alt="프리뷰2" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview3.jpg" alt="프리뷰3" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview4.jpg" alt="프리뷰4" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview5.jpg" alt="프리뷰5" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview6.jpg" alt="프리뷰6" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+          <div><img src="assets/images/preview7.jpg" alt="프리뷰7" class="mx-auto rounded-lg w-auto max-h-[200px] object-contain" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 구분선 추가 -->
+    <div class="border-t border-gray-200"></div>
+
+
+    <!-- Q&A Section
     <section id="qa" class="py-16 bg-white" data-aos="fade-up">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-8 text-center">질문하기</h2>
         <div class="flex flex-col md:flex-row items-start md:space-x-4">
-          <textarea id="questionInput" rows="3" class="flex-1 p-3 border border-gray-300 rounded-lg mb-4 md:mb-0 focus:outline-none focus:ring-2 focus:ring-[#6E7468] transition" placeholder="궁금하신 내용을 입력하세요..."></textarea>
-          <button id="askBtn" class="w-full md:w-auto px-6 py-3 bg-[#6E7468] text-[#F5F1EA] font-medium rounded-lg hover:bg-[#5a6357] transition">질문하기</button>
+          <textarea id="questionInput" rows="3"
+                    class="flex-1 p-3 border border-gray-300 rounded-lg mb-4 md:mb-0 focus:outline-none focus:ring-2 focus:ring-[#6E7468]"
+                    placeholder="궁금하신 내용을 입력하세요..."></textarea>
+          <button id="askBtn"
+                  class="w-full md:w-auto px-6 py-3 bg-[#6E7468] text-[#F5F1EA] font-medium rounded-lg hover:bg-[#5a6357] transition">
+            질문하기
+          </button>
         </div>
         <div id="answerBox" class="mt-6 p-4 bg-[#F5F1EA] rounded-lg hidden animate-fadeIn">
           <p class="text-gray-800"></p>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- FAQ ACCORDION -->
     <section id="faq" class="py-16 bg-[#F5F1EA]" data-aos="fade-up">
@@ -208,12 +283,20 @@
         <h2 class="font-heading text-2xl sm:text-3xl text-[#6E7468] mb-6 text-center">자주 묻는 질문</h2>
         <div class="space-y-4">
           <div class="faq-item">
-            <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left font-heading py-2 bg-gray-200 rounded" aria-expanded="false">배송은 얼마나 걸리나요?</button>
-            <div class="hidden p-2 text-gray-700">주문 제작 후 평균 2주 정도 소요됩니다. 다만, 주문량이 많아질 경우 배송 일정이 지연될 수 있으니 참고 부탁드립니다.</div>
+            <button onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full text-left font-heading py-2 bg-gray-200 rounded"
+                    aria-expanded="false">배송은 얼마나 걸리나요?</button>
+            <div class="hidden p-2 text-gray-700">
+              주문 제작 후 평균 2주 정도 소요됩니다. 주문량이 많아질 경우 지연될 수 있으니 참고 부탁드립니다.
+            </div>
           </div>
           <div class="faq-item">
-            <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full text-left font-heading py-2 bg-gray-200 rounded" aria-expanded="false">AS는 가능한가요?</button>
-            <div class="hidden p-2 text-gray-700">전체 목재로 제작되어 AS는 제공되지 않습니다. 목재의 자연스러운 특성(결의 차이, 미세한 이음 벌어짐 등)으로 인한 부분은 정상 사양으로 교환 및 환불이 불가하오니 이 점 양해 부탁드립니다.</div>
+            <button onclick="this.nextElementSibling.classList.toggle('hidden')"
+                    class="w-full text-left font-heading py-2 bg-gray-200 rounded"
+                    aria-expanded="false">AS는 가능한가요?</button>
+            <div class="hidden p-2 text-gray-700">
+              전체 목재로 제작되어 AS는 제공되지 않습니다. 자연스러운 목재 특성(결 차이, 이음 벌어짐 등)은 정상 사양으로 교환·환불이 불가하오니 양해 부탁드립니다.
+            </div>
           </div>
         </div>
       </div>
@@ -222,12 +305,34 @@
   </main>
 
   <!-- MODALS -->
-  <div id="modal-review" class="modal hidden flex"><div class="modal-content"><button id="closeModal" class="float-right">✕</button><div id="reviewContent" class="mt-4"></div></div></div>
+  <div id="modal-review" class="modal hidden flex">
+    <div class="modal-content">
+      <button id="closeModal" class="float-right">✕</button>
+      <div id="reviewContent" class="mt-4"></div>
+    </div>
+  </div>
 
   <!-- OFF-SCREEN INPUT FOR ANALYTICS -->
   <script>
-    function trackEvent(action, label) { gtag('event', action, { 'event_category': 'Conversion Funnel', 'event_label': label }); }
+    function trackEvent(action, label) {
+      gtag('event', action, { 'event_category': 'Conversion Funnel', 'event_label': label });
+    }
   </script>
+
+  <!-- 소셜 링크 -->
+  <section id="social" class="py-12 bg-[#ECEDEB]" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex justify-center space-x-8">
+      <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="text-[#6E7468] hover:text-[#CE9E55]">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="w-8 h-8 mx-auto" loading="lazy">
+      </a>
+      <a href="https://blog.naver.com/" target="_blank" rel="noopener noreferrer" class="text-[#6E7468] hover:text-[#CE9E55]">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/naver.svg" alt="Naver Blog" class="w-8 h-8 mx-auto" loading="lazy">
+      </a>
+      <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="text-[#6E7468] hover:text-[#CE9E55]">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube" class="w-8 h-8 mx-auto" loading="lazy">
+      </a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="py-8 bg-gray-100 text-center">
@@ -239,188 +344,168 @@
   </footer>
 
   <!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
-<script>
-  AOS.init({ once: true });
+  <!-- ① jQuery (slick 보다 위에) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- ② AOS & Slick -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
 
-  // Hero 이미지 순환 (부드러운 페이드)
-const heroImages = [
-  'assets/images/hero-3d.png',
-  'assets/images/hero-3d-alt1.png',
-  'assets/images/hero-3d-alt2.png'
-];
+  <script>
+    AOS.init({ once: true });
 
-let currentHeroIndex = 0;
-let activeImage = 1;
+    // Hero 이미지 순환 (부드러운 페이드)
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroImages = [
+        'assets/images/hero-3d.png',
+        'assets/images/hero-3d-alt1.png',
+        'assets/images/hero-3d-alt2.png'
+      ];
+      const img1 = document.getElementById('heroImage1');
+      const img2 = document.getElementById('heroImage2');
+      let currentHeroIndex = 0;
+      let activeImg = 1;
 
-const img1 = document.getElementById('heroImage1');
-const img2 = document.getElementById('heroImage2');
+      setInterval(() => {
+        const next = (currentHeroIndex + 1) % heroImages.length;
+        const fadeOut = activeImg === 1 ? img1 : img2;
+        const fadeIn  = activeImg === 1 ? img2 : img1;
+        fadeIn.src = heroImages[next];
+        fadeIn.classList.replace('opacity-0','opacity-100');
+        fadeOut.classList.replace('opacity-100','opacity-0');
+        currentHeroIndex = next;
+        activeImg = activeImg === 1 ? 2 : 1;
+      }, 3000);
 
-setInterval(() => {
-  const nextIndex = (currentHeroIndex + 1) % heroImages.length;
+      // Mobile menu toggle
+      document.getElementById('menu-btn')
+        .addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
 
-  const fadeOutImg = activeImage === 1 ? img1 : img2;
-  const fadeInImg = activeImage === 1 ? img2 : img1;
+      // Scroll spy
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+          if (e.isIntersecting) {
+            navLinks.forEach(a => a.classList.remove('text-[#CE9E55]'));
+            link?.classList.add('text-[#CE9E55]');
+          }
+        });
+      }, { threshold: 0.6 });
+      sections.forEach(s => observer.observe(s));
 
-  fadeInImg.src = heroImages[nextIndex];
-  fadeInImg.classList.remove('opacity-0');
-  fadeInImg.classList.add('opacity-100');
+      // Back to top
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => btn.style.display = window.scrollY > 300 ? 'block' : 'none');
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+// Mobile menu toggle
+document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+      // Countdown
+      const countdownEl = document.getElementById('countdown');
+      const endDate = new Date('2025-06-30T23:59:59');
+      setInterval(() => {
+        const diff = endDate - new Date(),
+              d = Math.floor(diff/86400000),
+              h = Math.floor((diff%86400000)/3600000),
+              m = Math.floor((diff%3600000)/60000),
+              s = Math.floor((diff%60000)/1000);
+        countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 ${m}분 ${s}초 남음`;
+      }, 1000);
 
-  fadeOutImg.classList.remove('opacity-100');
-  fadeOutImg.classList.add('opacity-0');
+      // Progress bar
+      document.getElementById('progress-bar').style.width = '75%';
+// Slick slider
+document.querySelectorAll('.preview-slider img').forEach(img => img.loading='lazy');
+      $('.preview-slider').slick({ infinite:true, autoplay:true, dots:true, arrows:false, cssEase:'ease-in-out', pauseOnHover:false });
+      // Lightbox
+      document.querySelectorAll('.lightbox-target').forEach(img =>
+        img.addEventListener('click', () => {
+          const lb = document.getElementById('lightbox');
+          lb.querySelector('img').src = img.src;
+          lb.classList.remove('hidden');
+        })
+      );
+      document.getElementById('lightbox')
+        .addEventListener('click', () => document.getElementById('lightbox').classList.add('hidden'));
 
-  currentHeroIndex = nextIndex;
-  activeImage = activeImage === 1 ? 2 : 1;
-}, 3000); // 이미지 전환 시간: 3초
+      // Favorites
+      document.querySelectorAll('button[data-id]').forEach(btn => {
+        const id = btn.dataset.id;
+        btn.textContent = localStorage.getItem(id)?'★':'☆';
+        btn.addEventListener('click', () => {
+          if (localStorage.getItem(id)) {
+            localStorage.removeItem(id);
+            btn.textContent = '☆';
+          } else {
+            localStorage.setItem(id,'1');
+            btn.textContent = '★';
+          }
+        });
+      });
 
+      // Analytics funnel
+      document.getElementById('track-plan')
+        .addEventListener('click', () => trackEvent('plan_click','제품 섹션 이동'));
+      document.getElementById('track-funding')
+        .addEventListener('click', () => trackEvent('funding_click','펀딩 섹션 이동'));
 
-  // Mobile menu
-  document.getElementById('menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
-  });
+      // Reviews modal
+      const reviews = {
+        1: '“디자인이 멋지고 사용하기 편리합니다!” – 김민수',
+        2: '“홈카페 시간이 더욱 즐거워졌어요.” – 이영희',
+        3: '“포터필터 거치가 안정적이에요.” – 박철수'
+      };
+      document.querySelectorAll('[data-review]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('reviewContent').textContent = reviews[btn.dataset.review];
+          document.getElementById('modal-review').classList.remove('hidden');
+          trackEvent('review_open','후기 '+btn.dataset.review);
+        });
+      });
+      document.getElementById('closeModal')
+        .addEventListener('click', () => document.getElementById('modal-review').classList.add('hidden'));
 
-  // Scroll spy
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
-      if (e.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('text-[#CE9E55]'));
-        link?.classList.add('text-[#CE9E55]');
-      }
+      // FAQ Accordion
+      document.querySelectorAll('#faq .faq-item button').forEach(btn => {
+        btn.style.cursor='pointer';
+        btn.addEventListener('click', () => {
+          const panel = btn.nextElementSibling;
+          const expanded = btn.getAttribute('aria-expanded')==='true';
+          btn.setAttribute('aria-expanded',(!expanded).toString());
+          panel.classList.toggle('hidden');
+        });
+      });
+
+      // Q&A Logic
+      const answers = {
+        '배송': '주문 제작 후 평균 2주 정도 소요됩니다. 주문량이 많아질 경우 지연될 수 있으니 참고 부탁드립니다.',
+        'AS':   '구매 후 1년간 무상 AS를 지원합니다. 단, 목재의 자연스러운 특성(결 차이, 이음 벌어짐 등)은 정상 사양으로 교환·환불 대상이 아닙니다.'
+      };
+      document.getElementById('askBtn').addEventListener('click', () => {
+        const q = document.getElementById('questionInput').value.trim();
+        let reply = '죄송합니다. 추가 문의는 rye721@naver.com으로 연락주세요.';
+        for (const key in answers) {
+          if (q.includes(key)) { reply = answers[key]; break; }
+        }
+        const box = document.getElementById('answerBox');
+        box.textContent = reply;
+        box.classList.remove('hidden');
+      });
+
+      
+
+    $('.preview-slider').slick({
+        infinite:      true,
+        slidesToShow:  1,
+        slidesToScroll:1,
+        autoplay:      true,
+        autoplaySpeed: 3000,
+        arrows:        false,
+        dots:          true,
+        cssEase:       'ease-in-out',
+        pauseOnHover:  false
+      });
     });
-  }, { threshold: 0.6 });
-  sections.forEach(s => observer.observe(s));
-
-  // Back to top
-  const btn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-  });
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Countdown
-  const countdownEl = document.getElementById('countdown');
-  const endDate = new Date('2025-06-30T23:59:59');
-  setInterval(() => {
-    const diff = endDate - new Date();
-    const d = Math.floor(diff / 86400000), h = Math.floor(diff % 86400000 / 3600000);
-    const m = Math.floor(diff % 3600000 / 60000), s = Math.floor(diff % 60000 / 1000);
-    countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 ${m}분 ${s}초 남음`;
-  }, 1000);
-
-  // Progress bar
-  document.getElementById('progress-bar').style.width = '75%';
-
-  // Lightbox
-  document.querySelectorAll('.lightbox-target').forEach(img => {
-    img.addEventListener('click', () => {
-      const lb = document.getElementById('lightbox');
-      lb.querySelector('img').src = img.src;
-      lb.classList.remove('hidden');
-    });
-  });
-  document.getElementById('lightbox').addEventListener('click', () => {
-    document.getElementById('lightbox').classList.add('hidden');
-  });
-
-  // Favorites
-  document.querySelectorAll('button[data-id]').forEach(btn => {
-    const id = btn.dataset.id;
-    btn.textContent = localStorage.getItem(id) ? '★' : '☆';
-    btn.addEventListener('click', () => {
-      if (localStorage.getItem(id)) {
-        localStorage.removeItem(id);
-        btn.textContent = '☆';
-      } else {
-        localStorage.setItem(id, '1');
-        btn.textContent = '★';
-      }
-    });
-  });
-
-  // Analytics funnel
-  function trackEvent(action, label) {
-    gtag('event', action, {
-      'event_category': 'Conversion Funnel',
-      'event_label': label
-    });
-  }
-  document.getElementById('track-plan').addEventListener('click', () => trackEvent('plan_click', '제품 섹션 이동'));
-  document.getElementById('track-funding').addEventListener('click', () => trackEvent('funding_click', '펀딩 섹션 이동'));
-
-  // 리뷰 모달
-  const reviews = {
-    1: '“디자인이 멋지고 사용하기 편리합니다!” – 김민수',
-    2: '“홈카페 시간이 더욱 즐거워졌어요.” – 이영희',
-    3: '“포터필터 거치가 안정적이에요.” – 박철수'
-  };
-  document.querySelectorAll('[data-review]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('reviewContent').textContent = reviews[btn.dataset.review];
-      document.getElementById('modal-review').classList.remove('hidden');
-      trackEvent('review_open', '후기 ' + btn.dataset.review);
-    });
-  });
-  document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('modal-review').classList.add('hidden');
-  });
-
-  // FAQ
-  document.querySelectorAll('#faq .faq-item button').forEach(btn => {
-    btn.style.cursor = 'pointer';
-    btn.addEventListener('click', () => {
-      const panel = btn.nextElementSibling;
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', (!expanded).toString());
-      panel.classList.toggle('hidden');
-    });
-  });
-
-  // Q&A 자동 응답
-  const answers = {
-    '배송': '주문 제작 후 평균 2주 정도 소요됩니다. 다만, 주문량이 많아질 경우 배송 일정이 지연될 수 있으니 참고 부탁드립니다.',
-    'AS': '구매 후 1년간 무상 AS를 지원합니다. 단, 목재의 자연스러운 특성(결의 차이, 미세한 이음 벌어짐 등)은 정상 사양으로 교환·환불 대상이 아니므로 양해 부탁드립니다.'
-  };
-  document.getElementById('askBtn').addEventListener('click', () => {
-    const q = document.getElementById('questionInput').value.trim();
-    let reply = '죄송합니다. 추가 문의는 rye721@naver.com으로 연락주세요.';
-    for (const key in answers) {
-      if (q.includes(key)) {
-        reply = answers[key];
-        break;
-      }
-    }
-    const box = document.getElementById('answerBox');
-    box.textContent = reply;
-    box.classList.remove('hidden');
-  });
-
-  // Mock data for 펀딩 수치
-  document.getElementById('participantCount').textContent = 150;
-  document.getElementById('stockCount').textContent = 20;
-</script>
-
-<!-- HERO 전환 스타일 추가 -->
-<style>
-  #heroImage {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .opacity-0 {
-    opacity: 0;
-  }
-  .opacity-100 {
-    opacity: 1;
-  }
-</style>
-
-
-    
   </script>
 </body>
 </html>

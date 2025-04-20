@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <!-- Google Analytics -->
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script defer>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date()); 
+    gtag('config', 'G-XXXXXXX');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Pour</title>
+  <meta name="description" content="작지만 견고한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studio Pour 홈카페 스테이션">
+  <meta property="og:description" content="컴팩트하지만 강력한 포터필터 거치 솔루션">
+  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/images/hero-3d.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.ico">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tailwind CSS & Plugins -->
+  <script defer src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+
+  <style>
+    /* Back to Top */
+    #backToTop {display:none; position:fixed; bottom:2rem; right:2rem; background:#CE9E55; color:#F5F1EA; padding:0.5rem; border-radius:9999px; cursor:pointer; z-index:50;}
+    /* Lightbox */
+    #lightbox {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:60;}
+    #lightbox img {max-width:90%; max-height:90%;}
+    /* Slick dots */
+    .slick-dots li button::before {color:#CE9E55; font-size:12px;}
+    .slick-dots li.slick-active button::before {color:#6E7468;}
+  </style>
+</head>
+<body class="bg-[#F5F1EA] text-[#6E7468] font-body">
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="맨 위로">↑</button>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="flex hidden">
+    <img src="" alt="확대 이미지">
+    <button id="lightboxClose" aria-label="닫기" class="absolute top-4 right-4 text-white text-2xl">✕</button>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 w-full bg-white bg-opacity-90 backdrop-blur z-50 py-2 sm:py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6">
+      <a href="#hero" class="flex items-center space-x-2">
+        <img src="assets/images/logo-cat.png" alt="Studio Pour 로고" class="h-8 w-8">
+        <span class="font-heading text-lg sm:text-xl hover:text-[#CE9E55] transition">Studio Pour</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-gray-700">
+        <a href="#hero" class="hover:text-[#CE9E55]">Home</a>
+        <a href="#features" class="hover:text-[#CE9E55]">기능</a>
+        <a href="#specs" class="hover:text-[#CE9E55]">스펙</a>
+        <a href="#plan" class="hover:text-[#CE9E55]">제품</a>
+        <a href="#funding" class="hover:text-[#CE9E55]">펀딩</a>
+        <a href="#reviews" class="hover:text-[#CE9E55]">후기</a>
+        <a href="#faq" class="hover:text-[#CE9E55]">FAQ</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+    </div>
+    <nav id="mobile-menu" class="hidden bg-white">
+      <div class="flex flex-col px-4 py-2 space-y-2">
+        <a href="#hero" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">Home</a>
+        <a href="#features" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">기능</a>
+        <a href="#specs" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">스펙</a>
+        <a href="#plan" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">제품</a>
+        <a href="#funding" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">펀딩</a>
+        <a href="#reviews" class="py-2 border-b border-gray-200 hover:text-[#CE9E55]">후기</a>
+        <a href="#faq" class="py-2 hover:text-[#CE9E55]">FAQ</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pt-20">
+    <!-- HERO -->
+    <section id="hero" class="py-16 bg-[#6E7468]/80 text-center" data-aos="fade-up">
+      <h1 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#F5F1EA] mb-4" data-aos="fade-down">
+        도징, 거치, 정리를 하나로<br>홈카페를 정돈하는 올인원 스테이션
+      </h1>
+      <div class="relative mx-auto mb-8 w-full max-w-md rounded-2xl shadow-lg overflow-hidden aspect-[4/5]">
+        <img id="heroImage1" src="assets/images/hero-3d.png" alt="올인원 스테이션" class="absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-700 z-20" loading="lazy">
+        <img id="heroImage2" src="assets/images/hero-3d-alt1.png" alt="올인원 스테이션 대체 이미지" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 z-10" loading="lazy">
+      </div>
+      <a href="#plan" id="track-plan" class="inline-block px-8 py-4 bg-[#CE9E55] text-[#F5F1EA] rounded-lg hover:bg-[#b38e48] transition" data-aos="fade-up" data-aos-delay="200">제품 살펴보기</a>
+    </section>
+    <!-- FEATURES, SPECS, PLAN, FUNDING, REVIEWS, FAQ... -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-100 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-gray-600 text-sm">
+      <p>© 2025 Studio Pour. All rights reserved.</p>
+      <p>대표자: 최원석</p>
+      <p>이메일: rye721@naver.com</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      AOS.init({ once: true });
+
+      // Hero Image rotation with preload
+      const heroImages = ['assets/images/hero-3d.png','assets/images/hero-3d-alt1.png','assets/images/hero-3d-alt2.png'];
+      const img1 = document.getElementById('heroImage1'), img2 = document.getElementById('heroImage2');
+      let idx=0, active=1;
+      const preload = src => new Promise(res => { const i=new Image(); i.onload=res; i.src=src; });
+      setInterval(async () => {
+        const next = (idx+1) % heroImages.length;
+        await preload(heroImages[next]);
+        const out = active===1 ? img1 : img2;
+        const inp = active===1 ? img2 : img1;
+        inp.src = heroImages[next]; inp.classList.replace('opacity-0','opacity-100');
+        out.classList.replace('opacity-100','opacity-0');
+        idx = next; active = 3 - active;
+      }, 3000);
+
+      // Back to top
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => btn.style.display = window.scrollY > 300 ? 'block' : 'none');
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Mobile menu toggle
+      document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+
+      // Countdown guard
+      const countdownEl = document.getElementById('countdown');
+      if(countdownEl){ const end = new Date('2025-06-30T23:59:59');
+        setInterval(() => {
+          const diff = end - new Date(); if(diff<0) return;
+          const days = Math.floor(diff/86400000), hrs = Math.floor((diff%86400000)/3600000);
+          countdownEl.textContent = `펀딩 마감까지 ${days}일 ${hrs}시간 남음`;
+        },1000);
+      }
+
+      // Slick slider
+      document.querySelectorAll('.preview-slider img').forEach(img => img.loading='lazy');
+      $('.preview-slider').slick({ infinite:true, autoplay:true, dots:true, arrows:false, cssEase:'ease-in-out', pauseOnHover:false });
+
+      // Lightbox
+      document.querySelectorAll('.lightbox-target').forEach(img => img.addEventListener('click', () => {
+        document.getElementById('lightbox').style.display = 'flex';
+        document.querySelector('#lightbox img').src = img.src;
+      }));
+      document.getElementById('lightbox').addEventListener('click', e => {
+        if(e.target.id==='lightbox' || e.target.id==='lightboxClose') document.getElementById('lightbox').style.display='none';
+      });
+      document.addEventListener('keydown', e => { if(e.key==='Escape') document.getElementById('lightbox').style.display='none'; });
+
+      // ... FAQ, modal, analytics scripts remain unchanged
+    });
+  </script>
+</body>
+</html>
