@@ -32,39 +32,57 @@
 
   <!-- 전역 스타일 -->
   <style>
-    /* Back to Top */
-    #backToTop {display:none; position:fixed; bottom:2rem; right:2rem; background:#CE9E55; color:#F5F1EA; padding:0.5rem; border-radius:9999px; cursor:pointer; z-index:50;}
-    /* Lightbox */
-    #lightbox {display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:60;}
-    #lightbox img {max-width:90%; max-height:90%;}
-    /* Slick dots */
-    .slick-dots li button::before {color:#CE9E55; font-size:12px;}
-    .slick-dots li.slick-active button::before {color:#6E7468;}
-    /* Back to Top button */
-    #backToTop { display: none; position: fixed; bottom: 2rem; right: 2rem; background: #CE9E55; color: #F5F1EA; padding: 0.5rem; border-radius: 9999px; cursor: pointer; }
-    /* Lightbox overlay */
-    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 50; }
-    #lightbox img { max-width: 90%; max-height: 90%; }
-    /* Progress bar */
-    .progress-container { background: #ddd; border-radius: 0.5rem; overflow: hidden; }
-    .progress-bar { height: 0.75rem; background: #CE9E55; width: 0%; }
-    /* Modal */
-    .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 60; }
-    .modal-content { background: white; padding: 1rem; border-radius: 0.5rem; max-width: 90%; }
-    /* FAQ spacing */
-    .faq-item + .faq-item { margin-top: 1rem; }
-    /* Fade-in animation */
-    .animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    /* Touch optimization */
-    .lightbox-target, button, a { touch-action: manipulation; }
-
-    /* Hero 이미지 페이드 전환 스타일 */
-    #heroImage1, #heroImage2 {
-      transition: opacity 0.7s ease-in-out;
+    /* Globals */
+    :root {
+      --color-primary: #6E7468;
+      --color-secondary: #CE9E55;
+      --bg-base: #F5F1EA;
+      --text-base: #6E7468;
     }
-    .opacity-0 { opacity: 0 !important; }
-    .opacity-100 { opacity: 1 !important; }
+    /* Custom Scrollbar */
+    body::-webkit-scrollbar { width:8px; }
+    body::-webkit-scrollbar-track { background:var(--bg-base); }
+    body::-webkit-scrollbar-thumb { background:var(--color-secondary); border-radius:4px; }
+
+    /* Back to Top */
+    #backToTop { display:none; position:fixed; bottom:2rem; right:2rem; background:var(--color-secondary); color:var(--bg-base); padding:0.5rem; border-radius:9999px; cursor:pointer; z-index:50; transition:transform 0.3s; }
+    #backToTop:hover { transform:scale(1.1); }
+
+    /* Lightbox */
+    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; z-index:60; }
+    #lightbox img { max-width:90%; max-height:90%; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.4); }
+
+    /* Wave Separator */
+    .wave { display:block; width:100%; height:80px; }
+
+    /* Slick dots */
+    .slick-dots li button::before { color:var(--color-secondary); font-size:12px; }
+    .slick-dots li.slick-active button::before { color:var(--color-primary); }
+
+    /* Section Decorations */
+    section { position:relative; }
+    section:not(:first-child):after {
+      content:""; position:absolute; bottom:0; left:0; width:100%; height:40px;
+      background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23F5F1EA" fill-opacity="1" d="M0,256L1440,128L1440,320L0,320Z"></path></svg>') repeat-x;
+    }
+
+    /* Hero Gradient Overlay */
+    #hero { background-image:linear-gradient(135deg, rgba(110,116,104,0.8) 0%, rgba(206,158,85,0.8) 100%), url('assets/images/hero-3d.png'); background-size:cover; background-position:center; }
+    #hero h1 { text-shadow:2px 2px 8px rgba(0,0,0,0.4); }
+
+    /* Button Animations */
+    .btn-animated { position:relative; overflow:hidden; }
+    .btn-animated::after { content:""; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.2); transform:skewX(-25deg); transition:left 0.5s; }
+    .btn-animated:hover::after { left:200%; }
+
+    /* Card Hover */
+    .card { transition:transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform:translateY(-8px); box-shadow:0 10px 20px rgba(0,0,0,0.1); }
+
+    /* Hero fade images */
+    #heroImage1, #heroImage2 { transition:opacity 0.7s ease-in-out; }
+    .opacity-0 { opacity:0 !important; }
+    .opacity-100 { opacity:1 !important; }
   </style>
 </head>
 
