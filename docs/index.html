@@ -2,8 +2,8 @@
 <html lang="ko" class="scroll-smooth" itemscope itemtype="http://schema.org/WebPage">
 <head>
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-  <script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script defer>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -14,15 +14,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Pour</title>
   <meta name="description" content="작지만 견고한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대">
+<link rel="canonical" href="https://yourdomain.com/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Studio Pour 홈카페 스테이션">
-  <meta property="og:description" content="컴팩트하지만 강력한 포터필터 거치 솔루션">
-  <meta property="og:image" content="https://ryesoup.github.io/studio-pour/assets/images/hero-3d.png">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Studio Pour 홈카페 스테이션">
+  <meta property="og:description" content="컴팩트 도징 스테이션, 포터필터 거치대, 깔끔 정리 솔루션">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:image" content="https://yourdomain.com/assets/images/hero-3d.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="icon" href="assets/images/favicon.ico">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Tailwind CSS & Plugins -->
   <script defer src="https://cdn.tailwindcss.com"></script>
@@ -60,12 +66,28 @@
     .slick-dots li.slick-active button::before { color:var(--color-primary); }
 
     /* Section Decorations */
-    section { position:relative; }
-    section:not(:first-child):after {
-      z-index: -1;
+section { position:relative; }
+section:not(:first-child):after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:40px;
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23F5F1EA" fill-opacity="1" d="M0,256L1440,128L1440,320L0,320Z"></path></svg>') repeat-x;
+  z-index: -1;
   pointer-events: none;
-      content:""; position:absolute; bottom:0; left:0; width:100%; height:40px;
+}
+    section:not(:first-child):after {
+      content:"";
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:40px;
       background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23F5F1EA" fill-opacity="1" d="M0,256L1440,128L1440,320L0,320Z"></path></svg>') repeat-x;
+      z-index:-1;
+      pointer-events:none;
     }
 
     /* Hero Gradient Overlay */
@@ -86,11 +108,33 @@
     .opacity-0 { opacity:0 !important; }
     .opacity-100 { opacity:1 !important; }
   </style>
+  <!-- SEO 개선 추가 -->
+  <link rel="canonical" href="https://yourdomain.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Studio Pour 홈카페 스테이션",
+    "url": "https://yourdomain.com/",
+    "description": "작지만 견고한 홈카페 스테이션, Studio Pour 올인원 포터필터 거치대",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Studio Pour",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://yourdomain.com/assets/images/logo-cat.png"
+      }
+    }
+  }
+  </script>
 </head>
 
-<body class="bg-[#F5F1EA] text-[#6E7468] font-body">
+<body class="bg-[var(--bg-base)] text-[var(--text-base)] font-body">
   <!-- Back to Top -->
   <button id="backToTop" aria-label="맨 위로">↑</button>
+  <div id="lightbox" class="flex hidden"><img src="" alt="확대 이미지"><button id="lightboxClose" aria-label="닫기" class="absolute top-4 right-4 text-white text-2xl">✕</button></div>
 
   <!-- HEADER -->
   <header class="sticky top-0 w-full bg-white bg-opacity-90 backdrop-blur z-50 py-4">
@@ -148,6 +192,7 @@
         </a>
       </div>
     </section>
+    <div class="wave"></div>
 
     <!-- FUNDING SECTION -->
     <section id="funding" class="py-16 bg-[#ECEDEB] text-center" data-aos="fade-up">
@@ -167,6 +212,7 @@
         </a>
       </div>
     </section>
+    <div class="wave"></div>
 
     <!-- FEATURES -->
     <section id="features" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
@@ -200,6 +246,7 @@
         </div>
       </div>
     </section>
+    <div class="wave"></div>
 
     <!-- SPECS -->
     <section id="specs" class="py-16 bg-[#ECEDEB]" data-aos="fade-up">
@@ -212,6 +259,7 @@
         </ul>
       </div>
     </section>
+    <div class="wave"></div>
 
     <!-- PRODUCTS -->
     <section id="plan" class="py-20 bg-[#F5F1EA]" data-aos="fade-up">
@@ -243,7 +291,7 @@
         </div>
       </div>
     </section>
-
+    <div class="wave"></div>
     <!-- 실사용 프리뷰 -->
     <section id="preview-real" class="py-16 bg-white" data-aos="fade-up">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
