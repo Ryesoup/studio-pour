@@ -265,6 +265,133 @@
     index = (index - 1 + totalSlides) % totalSlides;
     showSlide(index);
   });
+
+  // Scroll spy
+  const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
+          if (e.isIntersecting) {
+            navLinks.forEach(a => a.classList.remove('text-[#CE9E55]'));
+            link?.classList.add('text-[#CE9E55]');
+          }
+        });
+      }, { threshold: 0.6 });
+      sections.forEach(s => observer.observe(s));
+
+      // Back to top
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => btn.style.display = window.scrollY > 300 ? 'block' : 'none');
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+// Mobile menu toggle
+document.getElementById('menu-btn').addEventListener('click', () => document.getElementById('mobile-menu').classList.toggle('hidden'));
+      
+// 2) Countdown
+      const countdownEl = document.getElementById('countdown');
+      const endDate = new Date('2025-06-30T23:59:59');
+      setInterval(() => {
+        const diff = endDate - new Date();
+        if(diff < 0) return;
+        const d = Math.floor(diff/86400000);
+        const h = Math.floor((diff%86400000)/3600000);
+        countdownEl.textContent = `펀딩 마감까지 ${d}일 ${h}시간 남음`;
+      }, 1000);
+
+      // Progress bar
+      document.getElementById('progress-bar').style.width = '75%';
+// Slick slider
+document.querySelectorAll('.preview-slider img').forEach(img => img.loading='lazy');
+      $('.preview-slider').slick({ infinite:true, autoplay:true, dots:true, arrows:false, cssEase:'ease-in-out', pauseOnHover:false });
+      // Lightbox
+      document.querySelectorAll('.lightbox-target').forEach(img =>
+        img.addEventListener('click', () => {
+          const lb = document.getElementById('lightbox');
+          lb.querySelector('img').src = img.src;
+          lb.classList.remove('hidden');
+        })
+      );
+      document.getElementById('lightbox')
+        .addEventListener('click', () => document.getElementById('lightbox').classList.add('hidden'));
+
+      // Favorites
+      document.querySelectorAll('button[data-id]').forEach(btn => {
+        const id = btn.dataset.id;
+        btn.textContent = localStorage.getItem(id)?'★':'☆';
+        btn.addEventListener('click', () => {
+          if (localStorage.getItem(id)) {
+            localStorage.removeItem(id);
+            btn.textContent = '☆';
+          } else {
+            localStorage.setItem(id,'1');
+            btn.textContent = '★';
+          }
+        });
+      });
+
+      // Analytics funnel
+      document.getElementById('track-plan')
+        .addEventListener('click', () => trackEvent('plan_click','제품 섹션 이동'));
+      document.getElementById('track-funding')
+        .addEventListener('click', () => trackEvent('funding_click','펀딩 섹션 이동'));
+
+      // Reviews modal
+      const reviews = {
+        1: '“디자인이 멋지고 사용하기 편리합니다!” – 김민수',
+        2: '“홈카페 시간이 더욱 즐거워졌어요.” – 이영희',
+        3: '“포터필터 거치가 안정적이에요.” – 박철수'
+      };
+      document.querySelectorAll('[data-review]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('reviewContent').textContent = reviews[btn.dataset.review];
+          document.getElementById('modal-review').classList.remove('hidden');
+          trackEvent('review_open','후기 '+btn.dataset.review);
+        });
+      });
+      document.getElementById('closeModal')
+        .addEventListener('click', () => document.getElementById('modal-review').classList.add('hidden'));
+
+      // FAQ Accordion
+      document.querySelectorAll('#faq .faq-item button').forEach(btn => {
+        btn.style.cursor='pointer';
+        btn.addEventListener('click', () => {
+          const panel = btn.nextElementSibling;
+          const expanded = btn.getAttribute('aria-expanded')==='true';
+          btn.setAttribute('aria-expanded',(!expanded).toString());
+          panel.classList.toggle('hidden');
+        });
+      });
+
+      // Q&A Logic
+      const answers = {
+        '배송': '주문 제작 후 평균 2주 정도 소요됩니다. 주문량이 많아질 경우 지연될 수 있으니 참고 부탁드립니다.',
+        'AS':   '구매 후 1년간 무상 AS를 지원합니다. 단, 목재의 자연스러운 특성(결 차이, 이음 벌어짐 등)은 정상 사양으로 교환·환불 대상이 아닙니다.'
+      };
+      document.getElementById('askBtn').addEventListener('click', () => {
+        const q = document.getElementById('questionInput').value.trim();
+        let reply = '죄송합니다. 추가 문의는 rye721@naver.com으로 연락주세요.';
+        for (const key in answers) {
+          if (q.includes(key)) { reply = answers[key]; break; }
+        }
+        const box = document.getElementById('answerBox');
+        box.textContent = reply;
+        box.classList.remove('hidden');
+      });
+
+      
+
+    $('.preview-slider').slick({
+        infinite:      true,
+        slidesToShow:  1,
+        slidesToScroll:1,
+        autoplay:      true,
+        autoplaySpeed: 3000,
+        arrows:        false,
+        dots:          true,
+        cssEase:       'ease-in-out',
+        pauseOnHover:  false
+      });
+    
   </script>
 </body>
 </html>
